@@ -46,11 +46,12 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
     if (strpos($content, FULL_RELATIVE_PLUGIN_PATH) === 0) {
       return str_replace(FULL_RELATIVE_PLUGIN_PATH, WP_BASE . '/plugins', $content);
     } else {
+      $content = str_replace('/' . CHILD_THEME_PATH, '/child', $content);
       return str_replace('/' . THEME_PATH, '', $content);
     }
   }
 
-  if (!is_multisite() && !is_child_theme() && get_option('permalink_structure')) {
+  //if (!is_multisite() && !is_child_theme() && get_option('permalink_structure')) {
     if (current_theme_supports('rewrite-urls')) {
       add_action('generate_rewrite_rules', 'roots_add_rewrites');
     }
@@ -71,7 +72,7 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
 
       add_filters($tags, 'roots_clean_urls');
     }
-  }
+  //}
 
   // Add the contents of h5bp-htaccess into the .htaccess file
   function roots_add_h5bp_htaccess($content) {
