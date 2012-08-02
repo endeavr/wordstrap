@@ -1,3 +1,6 @@
 [submodule "admin"]
 	path = admin
 	url = /Users/jloft/Endeavr/wordstrap/wp-content/themes/alienship-ct/admin
+[submodule "less"]
+	path = less
+	url = /Users/jloft/Endeavr/wordstrap-components/lessphp
