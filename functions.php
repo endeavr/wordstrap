@@ -41,3 +41,6 @@ function roots_setup() {
 }
 
 add_action('after_setup_theme', 'roots_setup');
+
+  // WordStrap Theme Options
+include_once dirname( __FILE__ ) . '/admin/functions.php';
