@@ -15,12 +15,12 @@
  * 4. /theme/js/main.js
  */
 
-function roots_scripts() {
-  wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/css/bootstrap.css', false, null);
-
-  if (current_theme_supports('bootstrap-responsive')) {
-    wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
-  }
+  function roots_scripts() {
+//    wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/css/bootstrap.css', false, null);
+//  
+//    if (current_theme_supports('bootstrap-responsive')) {
+//      wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
+//    }
 
   // If you're not using Bootstrap, include HTML5 Boilerplate's main.css:
   // wp_enqueue_style('roots_h5bp', get_template_directory_uri() . '/css/main.css', false, null);
