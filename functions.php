@@ -42,5 +42,14 @@ function roots_setup() {
 
 add_action('after_setup_theme', 'roots_setup');
 
-  // WordStrap Theme Options
-include_once dirname( __FILE__ ) . '/admin/functions.php';
+   // WordStrap Theme Options
+ include_once locate_template('/admin/functions.php');
+ 
+  /* WP-LESS */
+     add_action('wp_enqueue_scripts', 'alienship_wp_less');
+     if ( ! function_exists( 'alienship_wp_less' ) ):
+     function alienship_wp_less() {
+     /* Load Bootstrap CSS */
+       require_once locate_template('/less/wp-less/bootstrap-for-theme.php'); 
+     }
+     endif;
