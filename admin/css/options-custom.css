@@ -1,0 +1,96 @@
+/*-------------------------------------------------------------------------------------------*/
+/* Options Framework Custom Styles */
+/*-------------------------------------------------------------------------------------------*/
+
+#optionsframework .section {
+margin-bottom:20px;
+}
+
+#optionsframework h3 {
+
+}
+
+#optionsframework .section-info {
+overflow:hidden;
+clear:both;
+display:block;
+margin:0;
+padding:0 10px;
+}
+
+#optionsframework > form > .group > .section-info > h4.heading {
+font-size: 1.2em;
+color: #fff;
+background:#aaa;
+margin:0 -10px;
+padding:3px 10px;
+border:1px solid #888;
+}
+
+#optionsframework > form > .group > .section-info > p {
+color: #666;
+background:#eee;
+margin:0 -10px 5px;
+padding:5px 10px;
+border-bottom:1px solid #ccc;
+}
+
+#optionsframework p {
+margin:0 0 10px 0;
+}
+
+#optionsframework dd {
+margin-left:0;
+}
+
+#optionsframework h1, #optionsframework h2, #optionsframework h3 {
+margin:0 0 10px 0;
+}
+
+#optionsframework #page {
+background:#fff;
+min-width:200px;
+max-width:740px;
+width:60%;
+margin:20px auto;
+}
+
+#optionsframework header {
+background:#dedede;
+padding:30px 40px;
+}
+
+#optionsframework .entry-content {
+padding:20px 40px;
+}
+
+h2.nav-tab-wrapper {
+}
+
+h2 .nav-tab {
+margin:0;
+padding:5px 10px;
+font-size:24px;
+background:#efefef;
+color:#999;
+}
+
+h2 .nav-tab-active {
+background:#fff;
+}
+
+h2 .nav-tab .heading {
+display:none;
+}
+h2 .nav-tab i {
+
+}
+
+.icon-Info:before { content: "\f05a"; }
+.icon-Content:before { content: "\f036"; }
+.icon-Navigation:before { content: "\f00b"; }
+.icon-Styles:before { content: "\f043"; }
+.icon-Fonts:before { content: "\f034"; }
+.icon-jQuery:before { content: "\f093"; }
+.icon-Tools:before { content: "\f085"; }
+.icon-Extras:before { content: "\f069"; }
