@@ -1,6 +1,0 @@
-[submodule "admin"]
-	path = admin
-	url = /Users/jloft/Endeavr/wordstrap-components/options-framework/
-[submodule "less"]
-	path = less
-	url = /Users/jloft/Endeavr/wordstrap-components/lessphp
