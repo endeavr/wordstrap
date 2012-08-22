@@ -1,6 +1,8 @@
-# [Roots Theme](http://www.rootstheme.com/)
+# [Roots Theme](http://www.rootstheme.com/) + WordStrap
 
 Roots is a starting WordPress theme made for developers that’s based on [HTML5 Boilerplate](http://html5boilerplate.com/) and [Bootstrap from Twitter](http://twitter.github.com/bootstrap/).
+
+WordStrap is a fork of Roots that aims to enhance the Bootstrap / WordPress integration.
 
 ## Installation
 
@@ -43,6 +45,8 @@ Everyone is welcome to help improve this project. There are several ways you can
 * Mailing list: [http://groups.google.com/group/roots-theme](http://groups.google.com/group/roots-theme)
 * Twitter: [@retlehs](https://twitter.com/#!/retlehs)
 * Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
+
+* This Fork: [https://github.com/jloft/wordstrap](https://github.com/jloft/wordstrap)
 
 ## License
 
