@@ -15,24 +15,10 @@
  * 4. /theme/assets/js/main.js
  */
 
-<<<<<<< HEAD:inc/scripts.php
-  function roots_scripts() {
-//    wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/css/bootstrap.css', false, null);
-//  
-//    if (current_theme_supports('bootstrap-responsive')) {
-//      wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
-//    }
-
-  // If you're not using Bootstrap, include HTML5 Boilerplate's main.css:
-  // wp_enqueue_style('roots_h5bp', get_template_directory_uri() . '/css/main.css', false, null);
-
-  wp_enqueue_style('roots_app', get_template_directory_uri() . '/css/app.css', false, null);
-=======
 function roots_scripts() {
-  wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
-  wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/assets/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
-  wp_enqueue_style('roots_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
->>>>>>> 4a1129bc7311dfc48dc2865766bb99f9ee58f137:lib/scripts.php
+  // wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
+  // wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/assets/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
+  // wp_enqueue_style('roots_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
 
   // Load style.css from child theme
   if (is_child_theme()) {
@@ -52,9 +38,9 @@ function roots_scripts() {
   }
 
   wp_register_script('roots_plugins', get_template_directory_uri() . '/assets/js/plugins.js', false, null, false);
-  wp_register_script('roots_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
+  // wp_register_script('roots_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
   wp_enqueue_script('roots_plugins');
-  wp_enqueue_script('roots_main');
+  // wp_enqueue_script('roots_main');
 }
 
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
