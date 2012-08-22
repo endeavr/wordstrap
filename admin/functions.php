@@ -110,6 +110,61 @@ function options_typography_get_google_fonts() {
 	return $google_faces;
 }
 
+function options_typography_get_google_serif_fonts() {
+	// Google Font Defaults
+	$google_serif_faces = array(
+		'Amarante, serif' => 'Amarante',
+		'Arvo, serif' => 'Arvo',
+		'Bitter, serif' => 'Bitter',
+		'Bree Serif, serif' => 'Bree Serif',
+		'Courgette, serif' => 'Courgette',
+		'Diplomata SC, serif' => 'Diplomata SC',
+		'Droid Serif, serif' => 'Droid Serif',
+		'Eagle Lake, serif' => 'Eagle Lake',
+		'Gorditas, serif' => 'Gorditas',
+		'Exo, sans-serif' => 'Exo',
+		'IM Fell French Canon SC, serif' => 'IM Fell French Canon SC',
+		'Limelight, serif' => 'Limelight',
+		'Love Ya Like A Sister, serif' => 'Love Ya Like A Sister',
+		'Mate SC, serif' => 'Mate SC',
+		'Merienda One, serif' => 'Merienda One',
+		'Metal Mania, serif' => 'Metal Mania',
+		'Mystery Quest, serif' => 'Mystery Quest',
+		'Philosopher, serif' => 'Philosopher',
+		'Rokkitt, serif' => 'Rokkit',
+		'Unkempt, serif' => 'Unkempt',
+		'Quando, serif' => 'Quando',
+		'Quattrocento, serif' => 'Quattrocento'	
+	);
+	return $google_serif_faces;
+}
+
+function options_typography_get_google_sans_fonts() {
+	// Google Font Defaults
+	$google_sans_faces = array(
+		'Bangers, sans-serif' => 'Bangers',
+		'Black Ops One, sans-serif' => 'Black Ops One',
+		'Cherry Cream Soda, sans-serif' => 'Cherry Cream Soda',
+		'Codystar, sans-serif' => 'Codystar',
+		'Copse, sans-serif' => 'Copse',
+		'Crushed, sans-serif' => 'Crushed',
+		'Cuprum, sans-serif' => 'Cuprum',
+		'Droid Sans, sans-serif' => 'Droid Sans',
+		'Exo, sans-serif' => 'Exo',
+		'Lato, sans-serif' => 'Lato',
+		'Michroma, sans-serif' => 'Micrhoma',
+		'Nobile, sans-serif' => 'Nobile',
+		'Nunito, sans-serif' => 'Nunito',
+		'Open Sans, sans-serif' => 'Open Sans',
+		'Oswald, sans-serif' => 'Oswald',
+		'Play, sans-serif' => 'Play',
+		'PT Sans, sans-serif' => 'PT Sans',
+		'Ubuntu, sans-serif' => 'Ubuntu',
+		'Yanone Kaffeesatz, sans-serif' => 'Yanone Kaffeesatz'		
+	);
+	return $google_sans_faces;
+}
+
 /* 
  * Outputs the selected option panel styles inline into the <head>
  */
@@ -177,10 +232,11 @@ add_action('wp_head', 'options_typography_styles');
  
 function options_typography_font_styles($option, $selectors) {
 		$output = $selectors . ' {';
-		$output .= ' color:' . $option['color'] .'; ';
+		$output .= 'color:' . $option['color'] .'; ';
 		$output .= 'font-family:' . $option['face'] . '; ';
 		$output .= 'font-weight:' . $option['style'] . '; ';
 		$output .= 'font-size:' . $option['size'] . '; ';
+		$output .= 'line-height:' . $option['height'] . '; ';
 		$output .= '}';
 		$output .= "\n";
 		return $output;
@@ -196,15 +252,15 @@ if ( !function_exists( 'options_typography_google_fonts' ) ) {
 	function options_typography_google_fonts() {
 		$all_google_fonts = array_keys( options_typography_get_google_fonts() );
 		// Define all the options that possibly have a unique Google font
-		$google_font = of_get_option('google_font', 'Rokkitt, serif');
+		// $google_font = of_get_option('google_font', 'Rokkitt, serif');
 		$google_mixed = of_get_option('google_mixed', false);
-		$google_mixed_2 = of_get_option('google_mixed_2', 'Arvo, serif');
+		// $google_mixed_2 = of_get_option('google_mixed_2', 'Arvo, serif');
 		$wordstrap_brand_font_type = of_get_option('wordstrap_brand_font_type', false);		
 		// Get the font face for each option and put it in an array
 		$selected_fonts = array(
-			$google_font['face'],
+			// $google_font['face'],
 			$google_mixed['face'],
-			$google_mixed_2['face'],
+			// $google_mixed_2['face'],
 			$wordstrap_brand_font_type['face'] );			
 		// Remove any duplicates in the list
 		$selected_fonts = array_unique($selected_fonts);
