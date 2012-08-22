@@ -25,6 +25,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 /* Make sure we don't expose any info if called directly */
 
+/*
+ CUSTOM CHANGELOG
+ 1. Line 77 -> Specified the sub-directory path where options.php is.
+*/
+
 if ( !function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a little extension, don't mind me.";
 	exit;
