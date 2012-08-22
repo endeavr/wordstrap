@@ -11,15 +11,16 @@ WordStrap is a fork of Roots that aims to enhance the Bootstrap / WordPress inte
 
 ## Configuration
 
-Edit `inc/config.php` to enable support for major functionality and to define constants that are used throughout the theme.
+Edit `lib/config.php` to enable support for major functionality and to define constants that are used throughout the theme.
 
 ## Features
 
 * HTML5 Boilerplate’s markup and `.htaccess`
 * Bootstrap from Twitter
+* Theme wrapper
 * Root relative URLs
 * Clean URLs (no more `/wp-content/`)
-* All static theme assets are rewritten to the website root (`/css/`, `/img/`, and `/js/`)
+* All static theme assets are rewritten to the website root (`/assets/css/`, `/assets/img/`, and `/assets/js/`)
 * Cleaner HTML output of navigation menus
 * Cleaner output of `wp_head` and enqueued scripts/styles
 * Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
@@ -44,6 +45,7 @@ Everyone is welcome to help improve this project. There are several ways you can
 * Docs: [https://github.com/retlehs/roots/wiki](https://github.com/retlehs/roots/wiki)
 * Mailing list: [http://groups.google.com/group/roots-theme](http://groups.google.com/group/roots-theme)
 * Twitter: [@retlehs](https://twitter.com/#!/retlehs)
+<<<<<<< HEAD
 * Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
 
 * This Fork: [https://github.com/jloft/wordstrap](https://github.com/jloft/wordstrap)
@@ -61,3 +63,6 @@ Everyone is welcome to help improve this project. There are several ways you can
 ### Everything else:
 
 The Unlicense (aka: public domain)
+=======
+* Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
+>>>>>>> 4a1129bc7311dfc48dc2865766bb99f9ee58f137
