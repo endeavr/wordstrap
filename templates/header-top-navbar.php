@@ -1,4 +1,5 @@
 <header id="banner" class="navbar navbar-fixed-top" role="banner">
+  <?php tha_header_top(); ?>
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -14,4 +15,5 @@
       </nav>
     </div>
   </div>
+  <?php tha_header_bottom(); ?>
 </header>
