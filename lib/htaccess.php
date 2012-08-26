@@ -46,6 +46,7 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
     if (strpos($content, FULL_RELATIVE_PLUGIN_PATH) === 0) {
       return str_replace(FULL_RELATIVE_PLUGIN_PATH, WP_BASE . '/plugins', $content);
     } else {
+      return $content;
       $content = str_replace(CHILD_THEME_PATH, '', $content);
       return str_replace(leadingslashit(THEME_PATH), '', $content);
     }
