@@ -34,11 +34,14 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
     global $wp_rewrite;
     $roots_new_non_wp_rules = array(
 <<<<<<< HEAD
+<<<<<<< HEAD
       //'css/(.*)'      => THEME_PATH . '/css/$1',
       //'js/(.*)'       => THEME_PATH . '/js/$1',
       //'img/(.*)'      => THEME_PATH . '/img/$1',
 =======
 >>>>>>> No more multisite rewrites
+=======
+>>>>>>> 3e35cbf1c49af7ac77d32851259cdb87d9b10376
       'plugins/(.*)'  => RELATIVE_PLUGIN_PATH . '/$1'
     );
     $wp_rewrite->non_wp_rules = array_merge($wp_rewrite->non_wp_rules, $roots_new_non_wp_rules);
