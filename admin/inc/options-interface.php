@@ -153,8 +153,28 @@ function optionsframework_fields() {
 			}
 			break;
 
-		// Image Selectors
-		case "images":
+ 		// Image Selectors
+ 		case "images":
+ 			$name = $option_name .'['. $value['id'] .']';
+ 			foreach ( $value['options'] as $key => $option ) {
+ 				$selected = '';
+ 				$checked = '';
+ 				if ( $val != '' ) {
+ 					if ( $val == $key ) {
+ 						$selected = ' of-radio-img-selected';
+ 						$checked = ' checked="checked"';
+ 					}
+ 				}
+ 				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+ 				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+ 				$output .= '<img src="' . esc_url( $option ) . '" alt="' . $option .'" class="of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;" />';
+ 			}
+ 			break;
+			
+		// BODY Pattern (CUSTOM)
+		case "bodypattern":
+
+			$bodybkgd = of_get_option('ws_bodybackground');
 			$name = $option_name .'['. $value['id'] .']';
 			foreach ( $value['options'] as $key => $option ) {
 				$selected = '';
@@ -167,9 +187,49 @@ function optionsframework_fields() {
 				}
 				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
 				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
-				$output .= '<img src="' . esc_url( $option ) . '" alt="' . $option .'" class="of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;" />';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $bodybkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
 			}
 			break;
+			
+		// WRAP Pattern (CUSTOM)
+		case "wrappattern":
+
+			$wrapbkgd = of_get_option('ws_wrapbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $wrapbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;
+			
+		// FOOTER Pattern (CUSTOM)
+		case "footerpattern":
+
+			$footerbkgd = of_get_option('ws_footerbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $footerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;								
 
 		// Checkbox
 		case "checkbox":
@@ -324,7 +384,7 @@ function optionsframework_fields() {
 			$output .= '</select>';
 			$output .= '</div>';
 
-			break;
+			break;		
 
 		// Editor
 		case 'editor':
