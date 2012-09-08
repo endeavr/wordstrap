@@ -51,6 +51,9 @@ add_action('after_setup_theme', 'roots_setup');
      if ( ! function_exists( 'alienship_wp_less' ) ):
      function alienship_wp_less() {
      /* Load Bootstrap CSS */
-       require_once locate_template('/less/wp-less/bootstrap-for-theme.php'); 
+       require_once locate_template('/lib/wp-less/bootstrap-for-theme.php'); 
      }
      endif;
+     
+  // Post Format Theme Support
+  add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );     
