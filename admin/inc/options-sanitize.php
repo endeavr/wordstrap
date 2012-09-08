@@ -26,6 +26,18 @@ add_filter( 'of_sanitize_radio', 'of_sanitize_enum', 10, 2);
 
 add_filter( 'of_sanitize_images', 'of_sanitize_enum', 10, 2);
 
+/* Body Pattern */
+
+add_filter( 'of_sanitize_bodypattern', 'of_sanitize_enum', 10, 2);
+
+/* Wrap Pattern */
+
+add_filter( 'of_sanitize_wrappattern', 'of_sanitize_enum', 10, 2);
+
+/* Footer Pattern */
+
+add_filter( 'of_sanitize_footerpattern', 'of_sanitize_enum', 10, 2);
+
 /* Checkbox */
 
 function of_sanitize_checkbox( $input ) {
@@ -162,7 +174,6 @@ function of_sanitize_background_attachment( $value ) {
 	return apply_filters( 'of_default_background_attachment', current( $recognized ) );
 }
 add_filter( 'of_background_attachment', 'of_sanitize_background_attachment' );
-
 
 /* Typography */
 
