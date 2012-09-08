@@ -50,3 +50,8 @@ publish
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+/assets/css/less/ws.app-d17eca526f.css
+/assets/css/less/ws.bootstrap-117c4f9482.css
+/assets/css/less/ws.responsive-7f7facb141.css
+/twbs-21
+/twbs-21/twitter-bootstrap-9e6322d
