@@ -94,3 +94,14 @@ h2 .nav-tab i {
 .icon-jQuery:before { content: "\f093"; }
 .icon-Tools:before { content: "\f085"; }
 .icon-Extras:before { content: "\f069"; }
+
+.radio-img-css-bkgd {
+display:block;
+width:120px;
+height:120px;
+background-repeat:repeat;
+}
+#optionsframework .controls .of-radio-img-selected {
+border:3px solid #000;	
+	
+}
