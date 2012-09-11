@@ -6,7 +6,11 @@ WordStrap is a fork of Roots that aims to enhance the Bootstrap / WordPress inte
 
 ## Disclaimer
 
-WordStrap is in active development, so there is no guarntee right now that if you download it on any given day that it will properly activate or work as a theme. I will commit a "1.0" verstion of WordStrap when its development reaches a launchable and stable state. And a changelog will be added once 1.0 is released.
+WordStrap is in active development, so there is no guarntee right now that if you download it on any given day that it will properly activate or work as a theme. I will commit a "1.0" verstion of WordStrap when its development reaches a launchable and stable state. 
+
+A changelog and WordStrap specific documentation will be added once 1.0 is released. For now, please reference the Roots Theme itself.
+
+# ROOTS THEME README...
 
 ## Installation
 
@@ -67,6 +71,4 @@ Everyone is welcome to help improve this project. There are several ways you can
 ### Everything else:
 
 The Unlicense (aka: public domain)
-=======
 * Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
->>>>>>> 4a1129bc7311dfc48dc2865766bb99f9ee58f137
