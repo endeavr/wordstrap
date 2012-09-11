@@ -2,7 +2,7 @@
 
 Roots is a starting WordPress theme made for developers that’s based on [HTML5 Boilerplate](http://html5boilerplate.com/) and [Bootstrap from Twitter](http://twitter.github.com/bootstrap/).
 
-WordStrap is a fork of Roots that aims to enhance the Bootstrap / WordPress integration.
+WordStrap is a fork of Roots that aims to enhance the Bootstrap / WordPress integration. It is in active development, so there is no guarntee right now that if you download it on any given day that it will properly activate or work as a theme. I will commit a "1.0" verstion of WordStrap when its development reaches a launchable and stable state. And a changelog will be added once 1.0 is released.
 
 ## Installation
 
