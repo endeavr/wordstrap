@@ -57,14 +57,12 @@
 // @headingsFontWeight:    bold;    // instead of browser default, bold
 // @headingsColor:         inherit; // empty to use BS default, @textColor
 
-
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
 // @tableBackgroundAccent:             #f9f9f9; // for striping
 // @tableBackgroundHover:              #f5f5f5; // for hover
 // @tableBorder:                       #ddd; // table and cell border
-
 
 // Buttons
 // -------------------------
@@ -77,16 +75,16 @@
 
 // @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        darken(@btnInfoBackground, 20%);
-// 
+
 // @btnSuccessBackground:              #62c462;
 @btnSuccessBackgroundHighlight:     darken(@btnSuccessBackground, 20%);
-// 
+
 // @btnWarningBackground:              lighten(@orange, 15%);
 @btnWarningBackgroundHighlight:     darken(@btnWarningBackground, 20%);
-// 
+
 // @btnDangerBackground:               #ee5f5b;
 @btnDangerBackgroundHighlight:      darken(@btnDangerBackground, 20%);
-// 
+
 // @btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     darken(@btnInverseBackground, 20%);
 
@@ -115,7 +113,6 @@
 // @dropdownLinkBackgroundActive:  @linkColor;
 
 
-
 // COMPONENT VARIABLES
 // --------------------------------------------------
 
@@ -136,10 +133,6 @@
 // @iconSpritePath:          "../img/glyphicons-halflings.png";
 // @iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 
-// FontAwesome Icons Color
-// -------------------------
-// @iconFontAwesome:         @grayDarker;
-
 
 // Input placeholder text color
 // -------------------------
@@ -149,6 +142,11 @@
 // Hr border color
 // -------------------------
 // @hrBorder:                @grayLighter;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
 
 
 // Wells
@@ -279,3 +277,8 @@
 // 768px-979px
 @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
 @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+
+// FontAwesome Icons Color
+// -------------------------
+// @iconFontAwesome:         @grayDarker;
