@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
@@ -6,14 +7,9 @@
  */
 
 function optionsframework_option_name() {
-
-	// This gets the theme name from the stylesheet
-	$themename = get_option( 'stylesheet' );
-	$themename = preg_replace("/\W/", "_", strtolower($themename) );
-
-	$optionsframework_settings = get_option( 'optionsframework' );
-	$optionsframework_settings['id'] = $themename;
-	update_option( 'optionsframework', $optionsframework_settings );
+    $optionsframework_settings = get_option('optionsframework');
+    $optionsframework_settings['id'] = 'ws_options';
+    update_option('optionsframework', $optionsframework_settings);
 }
 
 /**
@@ -27,6 +23,7 @@ function optionsframework_option_name() {
 
 function optionsframework_options() {
 	
+	// Typography Font Stack Arrays
 	$typography_fonts_serif_mix = array_merge( options_typography_get_os_fonts_serif() , options_typography_get_google_fonts_serif() );
 	// asort($typography_fonts_serif_mix);
 	$typography_fonts_sans_mix = array_merge( options_typography_get_os_fonts_sans() , options_typography_get_google_fonts_sans() );
@@ -63,6 +60,21 @@ function optionsframework_options() {
 	// Be sure to use stylesheet_directory_uri() if using a child theme
 	$imagepath =  get_stylesheet_directory_uri() . '/assets/img/';
 	
+	// Options Background Repeat Options
+	$options_repeat = array(
+			'repeat'    => 'Repeat All',
+			'no-repeat' => 'No Repeat',
+			'repeat-x'  => 'Repeat Horizontally',
+			'repeat-y'  => 'Repeat Vertically' 
+	);
+			
+	// Options Background Attachment Options
+	$options_attach = array(
+			'scroll'    => 'Scroll',
+			'fixed' => 'Fixed' 
+	);
+	
+	// Options for a Generic Background
 	$options_bkgd = array(
 			'transparent' => 'transparent',
 			'color' => 'background color',
@@ -70,60 +82,12 @@ function optionsframework_options() {
 			'upload' => 'background color with uploaded image'
 	);
 	
+	// Options for the Body Background
 	$options_body = array(
 			'color' => 'background color',
 			'colorpattern' => 'background color with pattern',
 			'upload' => 'background color with uploaded image'
-	);	
-	
-	// Background Patterns for Light Colored Bkgds
-	$options_patterns_light = array(
-			'grid1' => $imagepath . 'patterns-light/grid1.png',
-			'grid2' => $imagepath . 'patterns-light/grid2.png',
-			'grid3' => $imagepath . 'patterns-light/grid3.png',
-			'grid4' => $imagepath . 'patterns-light/grid4.png',
-			'grid5' => $imagepath . 'patterns-light/grid5.png',
-			'grid6' => $imagepath . 'patterns-light/grid6.png',
-			'grid7' => $imagepath . 'patterns-light/grid7.png',
-			'grid8' => $imagepath . 'patterns-light/grid8.png',
-			'grid9' => $imagepath . 'patterns-light/grid9.png',
-			'grid10' => $imagepath . 'patterns-light/grid10.png');	
-			
-	// Background Patterns for Dark Colored Bkgds
-	$options_patterns_dark = array(
-			'grid11' => $imagepath . 'patterns-dark/grid11.png',
-			'grid12' => $imagepath . 'patterns-dark/grid12.png',
-			'grid13' => $imagepath . 'patterns-dark/grid13.png',
-			'grid14' => $imagepath . 'patterns-dark/grid14.png',
-			'grid15' => $imagepath . 'patterns-dark/grid15.png',
-			'grid16' => $imagepath . 'patterns-dark/grid16.png',
-			'grid17' => $imagepath . 'patterns-dark/grid17.png',
-			'grid18' => $imagepath . 'patterns-dark/grid18.png',
-			'grid19' => $imagepath . 'patterns-dark/grid19.png',
-			'grid20' => $imagepath . 'patterns-dark/grid20.png');		
-			
-	// Background Patterns for Dark + Light Colored Bkgds
-	$options_patterns_all = array(
-			'grid1' => $imagepath . 'patterns-light/grid1.png',
-			'grid2' => $imagepath . 'patterns-light/grid2.png',
-			'grid3' => $imagepath . 'patterns-light/grid3.png',
-			'grid4' => $imagepath . 'patterns-light/grid4.png',
-			'grid5' => $imagepath . 'patterns-light/grid5.png',
-			'grid6' => $imagepath . 'patterns-light/grid6.png',
-			'grid7' => $imagepath . 'patterns-light/grid7.png',
-			'grid8' => $imagepath . 'patterns-light/grid8.png',
-			'grid9' => $imagepath . 'patterns-light/grid9.png',
-			'grid10' => $imagepath . 'patterns-light/grid10.png',	
-			'grid11' => $imagepath . 'patterns-dark/grid11.png',
-			'grid12' => $imagepath . 'patterns-dark/grid12.png',
-			'grid13' => $imagepath . 'patterns-dark/grid13.png',
-			'grid14' => $imagepath . 'patterns-dark/grid14.png',
-			'grid15' => $imagepath . 'patterns-dark/grid15.png',
-			'grid16' => $imagepath . 'patterns-dark/grid16.png',
-			'grid17' => $imagepath . 'patterns-dark/grid17.png',
-			'grid18' => $imagepath . 'patterns-dark/grid18.png',
-			'grid19' => $imagepath . 'patterns-dark/grid19.png',
-			'grid20' => $imagepath . 'patterns-dark/grid20.png');	
+	);
 			
 	// Background Patterns for Dark + Light Colored Bkgds
 	$options_patterns = array(
@@ -190,20 +154,15 @@ function optionsframework_options() {
 			'patdark-29' => $imagepath . 'patterns/patdark-29.png',
 			'patdark-30' => $imagepath . 'patterns/patdark-30.png',
 			'patdark-31' => $imagepath . 'patterns/patdark-31.png',
-			'patdark-32' => $imagepath . 'patterns/patdark-32.png');		
-			
-	// Options Background Repeat Options
-	$options_repeat = array(
-			'repeat'    => 'Repeat All',
-			'no-repeat' => 'No Repeat',
-			'repeat-x'  => 'Repeat Horizontally',
-			'repeat-y'  => 'Repeat Vertically' );
-			
-	// Options Background Attachment Options
-	$options_attach = array(
-			'scroll'    => 'Scroll',
-			'fixed' => 'Fixed' );			
-										
+			'patdark-32' => $imagepath . 'patterns/patdark-32.png'
+	);	
+	
+	// Navbar Brand
+	$options_array_brand = array(
+			"one" => "Website brand as font text",
+			"two" => "Website brand as mark image + font text",
+			"three" => "Website brand as mark image + text image"
+	);		
 
 	$options = array();
 
@@ -217,47 +176,41 @@ function optionsframework_options() {
 						
 	$options[] = array( "name" => "Brand Identity + Logo",
 					"desc" => "<strong>Let's start by defining the website's branding.</strong> Typically, a brand includes a mark (the iconic portion of a logo) and the brand name as text (the typographic portion of a logo).",
-
-					"type" => "info");	
-					
-					// Navbar Brand
-					$options_array_brand = array(
-						"one" => "Website brand as font text",
-						"two" => "Website brand as mark image + font text",
-						"three" => "Website brand as mark image + text image");
+					"type" => "info");
 						
-	$options[] = array( "name" => "Branding",
+	$options['ws_brand'] = array( "name" => "Branding",
 						"desc" => "Should the website utilize font text to convey the website name or display images to convey the website branding or a combination of both?",
 						"id" => "ws_brand",
 						"type" => "select",
 						"options" => $options_array_brand);
 						
-	$options[] = array( "name" => "Brand Name",
+	$options['ws_brand_font_text'] = array( "name" => "Brand Name",
 						"desc" => "Fill in the website brand name as you wish it to appear in the site's masthead.",
 						"id" => "ws_brand_font_text",
 						"class" => "hidden",
 						"type" => "text");	
 						
-	$options[] = array( 'name' => 'Brand Typography',
+	$options['ws_brand_font_type'] = array( 'name' => 'Brand Typography',
 						'desc' => 'Select from a list of Google web fonts along with the standard OS system fonts. Adjust the size and color.',
 						'id' => 'ws_brand_font_type',
 						'std' => array( 'size' => '40px', 'face' => '"Helvetica Neue", Helvetica, Arial, sans-serif', 'style' => 'bold', 'color' => '#049cdb' ),
+						'class' => 'hidden',
 						'type' => 'typography',
 						'options' => array(
 							'faces' => $typography_fonts_all_mix, )
 						);											
 						
-	$options[] = array( "name" => "Upload the brand&#39;s Logo Mark image",
+	$options['ws_brand_logo_mark'] = array( "name" => "Upload the brand&#39;s Logo Mark image",
 						"desc" => "Upload an image to use as the brand&#39;s Logo Mark. Ignore if not applicable.",
 						"id" => "ws_brand_logo_mark",
 						"class" => "hidden",
 						"type" => "upload");
 						
-	$options[] = array( "name" => "Upload the brand&#39;s Logo Name Text image",
+	$options['ws_brand_logo_text'] = array( "name" => "Upload the brand&#39;s Logo Name Text image",
 						"desc" => "Upload an image to use as the brand&#39;s Logo Name Text. Ignore if not applicable.",
 						"id" => "ws_brand_logo_text",
 						"class" => "hidden",
-						"type" => "upload");					
+						"type" => "upload");									
 										
 /*-----------------------------------------------------------------------------------*/
 
@@ -270,7 +223,7 @@ function optionsframework_options() {
 	// BODY Background Styles					
 	$options[] = array( "name" => "Background Style - BODY",
 						"desc" => "Use these options to set the color and/or pattern/image background of the website body.",			
-						"type" => "info");	
+						"type" => "info");					
 						
 	$options[] = array('name' => 'Body Background Options (@bodyOption)',
 						'desc' => '',
@@ -1488,10 +1441,10 @@ function optionsframework_options() {
 
 }
 
-/*
- * Include the custom jQuery files that show/hide items in the options panel.
- */
+/* Include the WordPress Front End Theme Customizer options. */
+include_once dirname( __FILE__ ) . '/options-theme-customizer.php';
 
+/* Include the custom jQuery files that show/hide items in the options panel. */
 include_once dirname( __FILE__ ) . '/options-js-body.php';
 include_once dirname( __FILE__ ) . '/options-js-wrap.php';
 include_once dirname( __FILE__ ) . '/options-js-footer.php';
