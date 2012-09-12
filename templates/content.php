@@ -7,7 +7,9 @@
 <?php endif; ?>
 
 <?php while (have_posts()) : the_post(); ?>
+  <?php tha_entry_before(); ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <?php tha_entry_top(); ?>
     <header>
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       <?php roots_entry_meta(); ?>
@@ -18,7 +20,9 @@
     <footer>
       <?php the_tags('<ul class="entry-tags"><li>','</li><li>','</li></ul>'); ?>
     </footer>
+    <?php tha_entry_bottom(); ?>
   </article>
+  <?php tha_entry_after(); ?>
 <?php endwhile; ?>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
