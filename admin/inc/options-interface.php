@@ -427,7 +427,7 @@ function optionsframework_fields() {
 				$output .= apply_filters('of_sanitize_info', $value['desc'] ) . "\n";
 			}
 			$output .= '</div>' . "\n";
-			break;
+			break;		
 
 		// Heading for Navigation
 		case "heading":
