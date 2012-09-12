@@ -34,7 +34,7 @@ function roots_setup() {
   // add_image_size('category-thumb', 300, 9999); // 300px wide (and unlimited height)
 
   // Add post formats (http://codex.wordpress.org/Post_Formats)
-  // add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
+  add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
 
   // Tell the TinyMCE editor to use a custom stylesheet
   add_editor_style('assets/css/editor-style.css');
@@ -42,18 +42,3 @@ function roots_setup() {
 }
 
 add_action('after_setup_theme', 'roots_setup');
-
-   // WordStrap Theme Options
- include_once locate_template('/admin/functions.php');
- 
-  /* WP-LESS */
-     add_action('wp_enqueue_scripts', 'alienship_wp_less');
-     if ( ! function_exists( 'alienship_wp_less' ) ):
-     function alienship_wp_less() {
-     /* Load Bootstrap CSS */
-       require_once locate_template('/lib/wp-less/bootstrap-for-theme.php'); 
-     }
-     endif;
-     
-  // Post Format Theme Support
-  add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );     
