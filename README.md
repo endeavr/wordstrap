@@ -15,11 +15,15 @@ A changelog and WordStrap specific documentation will be added once 1.0 is relea
 ## Installation
 
 * Clone the git repo - `git clone git://github.com/retlehs/roots.git` - or [download it](https://github.com/retlehs/roots/zipball/master)
-* Read [Theme Activation](https://github.com/retlehs/roots/wiki/Theme-activation) to understand everything that happens once you activate Roots
+* Reference the [theme activation](/retlehs/roots/blob/master/doc/activation.md) documentation to understand everything that happens once you activate Roots
 
 ## Configuration
 
 Edit `lib/config.php` to enable support for major functionality and to define constants that are used throughout the theme.
+
+## Documentation
+
+Take a look at the [documentation table of contents](/retlehs/roots/blob/master/doc/README.md).
 
 ## Features
 
@@ -40,35 +44,25 @@ Everyone is welcome to help improve this project. There are several ways you can
 
 * Reporting issues (please read [issue guidelines](https://github.com/necolas/issue-guidelines))
 * Suggesting new features
-* Writing or editing [docs](https://github.com/retlehs/roots/wiki)
+* Writing or editing [docs](/retlehs/roots/blob/master/doc/README.md)
 * Writing or refactoring code
 * Fixing [issues](https://github.com/retlehs/roots/issues)
 * Replying to questions on the [mailing list](http://groups.google.com/group/roots-theme)
-* [Donating](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=4K7D3BCQZ4Z72&lc=US&item_name=Roots%20Theme&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 
 ## Project information
 
 * Source: [https://github.com/retlehs/roots](https://github.com/retlehs/roots)
 * Web: [http://www.rootstheme.com/](http://www.rootstheme.com/)
-* Docs: [https://github.com/retlehs/roots/wiki](https://github.com/retlehs/roots/wiki)
 * Mailing list: [http://groups.google.com/group/roots-theme](http://groups.google.com/group/roots-theme)
 * Twitter: [@retlehs](https://twitter.com/#!/retlehs)
-<<<<<<< HEAD
 * Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
 
 * This Fork: [https://github.com/jloft/wordstrap](https://github.com/jloft/wordstrap)
 
-## License
-
-### Major components:
+## Major components:
 
 * HTML5 Boilerplate: The Unlicense
 * Modernizr: MIT/BSD license
 * jQuery: MIT/GPL license
 * Normalize.css: Public Domain
 * Bootstrap: Apache 2.0 license
-
-### Everything else:
-
-The Unlicense (aka: public domain)
-* Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
