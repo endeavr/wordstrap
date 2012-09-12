@@ -193,7 +193,7 @@ function optionsframework_options() {
 	$options['ws_brand_font_type'] = array( 'name' => 'Brand Typography',
 						'desc' => 'Select from a list of Google web fonts along with the standard OS system fonts. Adjust the size and color.',
 						'id' => 'ws_brand_font_type',
-						'std' => array( 'size' => '40px', 'face' => '"Helvetica Neue", Helvetica, Arial, sans-serif', 'style' => 'bold', 'color' => '#049cdb' ),
+						'std' => array( 'size' => '20px', 'face' => '"Helvetica Neue", Helvetica, Arial, sans-serif', 'style' => 'bold', 'color' => '#049cdb' ),
 						'class' => 'hidden',
 						'type' => 'typography',
 						'options' => array(
@@ -441,7 +441,7 @@ function optionsframework_options() {
 	$options[] = array( "name" => "Navbar Height (@navbarHeight)",
 						"desc" => "Set the height of the navbar in pixels. <br>The default is <strong>( 40px )</strong>.",
 						"id" => "ws_navbarheight",
-						"std" => "40px",
+						"std" => "50px",
 						"class" => "mini",
 						"type" => "text");	
 						
