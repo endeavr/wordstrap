@@ -44,8 +44,12 @@ if (!class_exists('WPLessPlugin'))
   $WPLessHelper = WPPluginToolkitPlugin::create('WPLess', __FILE__, 'WPLessHelper');  
   
 /* Definitely need to set the upload directory. This overrides the Roots theme setting it to "assets" folder in root directory. */
-  $theme_root_uri = get_theme_root_uri().'/wordstrap';
-  $theme_root = get_theme_root() . '/wordstrap';
+
+  // This gets the theme name from the stylesheet
+  $theme_name = get_option( 'stylesheet' );
+  
+  $theme_root_uri = get_theme_root_uri().'/'.$theme_name;
+  $theme_root = get_theme_root() . '/'.$theme_name;
   $WPLessPlugin->getConfiguration()->setUploadUrl($theme_root_uri);
   $WPLessPlugin->getConfiguration()->setUploadDir($theme_root);
 }
@@ -559,9 +563,15 @@ if (!is_admin())
 	
 /* Enqueue the LESS files */	
 
-	wp_enqueue_style('ws_less_bootstrap_custom', get_template_directory_uri(). '/assets/css/less/ws.bootstrap.less', array(), '1.0', 'screen,projection');
-	wp_enqueue_style('ws_less_responsive_custom', get_template_directory_uri(). '/assets/css/less/ws.responsive.less', array(), '1.0', 'screen,projection');
-	wp_enqueue_style('ws_less_app_custom', get_template_directory_uri(). '/assets/css/less/ws.app.less', array(), '1.0', 'screen,projection');	
+	wp_enqueue_style('ws_less_bootstrap_custom', '/wordstrap/assets/css/less/ws.bootstrap.less', array(), '1.0', 'screen,projection');
+	wp_enqueue_style('ws_less_responsive_custom', '/wordstrap/assets/css/less/ws.responsive.less', array(), '1.0', 'screen,projection');
+	
+	if (is_child_theme()) {
+		wp_enqueue_style('ws_less_app_custom', '/'.$theme_name.'/assets/css/less/ws.app.less', array(), '1.0', 'screen,projection');
+	}
+	if (!is_child_theme()) {
+		wp_enqueue_style('ws_less_app_custom', '/wordstrap/assets/css/less/ws.app.less', array(), '1.0', 'screen,projection');
+	}	
 
 add_action('wp_print_styles', array($WPLessPlugin, 'processStylesheets'));
 	
