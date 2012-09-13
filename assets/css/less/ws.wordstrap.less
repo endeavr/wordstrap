@@ -1,0 +1,177 @@
+/*!
+ * WordStrap Framework/Parent Theme | ws.wordstrap.less
+ * These are the standard WordStrap enhancements to the Bootstrap syling.
+ */
+ 
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body { 
+background-color:@bodyBackground;
+background-image:@bodyPattern;
+background-position:center top;
+background-repeat:@bodyRepeat;
+background-attachment:@bodyAttach;
+}
+
+
+
+/* =============================================================================
+   Header
+   ========================================================================== */
+
+#banner { }
+
+/* Fixed Topbar Navigation */
+body.top-navbar { padding-top: @navbarHeight; }
+body.admin-bar .navbar-fixed-top { top: 28px; }
+
+.navbar .brand {
+height:@navbarHeight -30;
+line-height:@navbarHeight -30;
+display:block;	
+float:left;
+padding:15px 25px;
+max-width:100%;
+}
+
+.navbar .brand img {
+height:@navbarHeight - 30;
+display:block;
+float:left;
+vertical-align:text-top;
+}
+
+.navbar .brand .brand_logo_mark {
+padding-right:20px;
+
+}
+.navbar .brand .brand_logo_text {
+
+}
+
+.navbar .brand .brand_font_text {
+display:block;	
+line-height:@brandFontSize;
+font-family:@brandFontFamily;
+font-size:@brandFontSize;
+font-weight:@brandFontWeight;
+color:@brandColor;	
+float:left;
+vertical-align:text-bottom;
+}
+
+#wrap {
+margin-top:20px;
+background-color:@wrapBackground;
+background-image:@wrapPattern;
+background-position:center top;
+background-repeat:@wrapRepeat;
+background-attachment:@wrapAttach;
+.border-radius(7px);
+.box-shadow(0 2px 5px rgba(0,0,0,.15));
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+#content {
+
+}
+
+
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+#main { 
+	padding-bottom:20px;
+}
+
+#main > * {
+padding-left:20px;
+padding-right:20px;	
+}
+
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+#sidebar { 
+padding-top:20px;
+padding-bottom:20px;
+background-color:fade(@bodyBackground, 15%);
+}
+#sidebar section { 
+padding:5px 20px;
+}
+
+
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+.hentry header { }
+.hentry time { }
+.hentry p.byline { }
+.hentry .entry-content { }
+.hentry footer { }
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+#content-info {
+background-color:@footerBackground;
+background-image:@footerPattern;
+background-position:center top;
+background-repeat:@footerRepeat;
+background-attachment:@footerAttach;
+color:@footerColor;
+padding-top:20px;
+padding-bottom:15px;
+margin-top:20px;
+.border-radius(7px);
+.box-shadow(0 2px 5px rgba(0,0,0,.15));
+}
+
+#content-info a {
+color:@footerLinkColor;
+border-bottom:1px dotted @footerLinkColor;	
+}
+
+#content-info > * {
+padding-left:15px;
+padding-right:15px;	
+}
+
+
+
+/* ==========================================================================
+   WordPress Generated Classes
+   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+   ========================================================================== */
+
+.aligncenter { display: block; margin: 0 auto; }
+.alignleft { float: left; }
+.alignright { float: right; }
+figure.alignnone { margin-left: 0; margin-right: 0; }
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 979px) {
+  /* Fix top padding when using the responsive grid with the fixed topbar */
+  body.top-navbar { padding-top: 0; }
+}
