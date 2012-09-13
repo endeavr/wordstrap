@@ -32,10 +32,9 @@
       </aside>
       <?php tha_sidebars_after(); ?>
       <?php endif; ?>
-
     </div><!-- /#content -->
   </div><!-- /#wrap -->
-
+  
   <?php get_template_part('templates/footer'); ?>
 
 </body>
