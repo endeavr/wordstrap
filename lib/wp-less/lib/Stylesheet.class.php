@@ -88,8 +88,10 @@ class WPLessStylesheet
   {
     $target_file =          $this->computeTargetPath();
 
-   // $this->source_path =    WP_CONTENT_DIR.preg_replace('#^'.WP_CONTENT_URL.'#U', '', $this->stylesheet->src);
-    $this->source_path =    TEMPLATEPATH.$this->stylesheet->src;
+   //$this->source_path =    WP_CONTENT_DIR.preg_replace('#^'.WP_CONTENT_URL.'#U', '', $this->stylesheet->src);
+   //$this->source_path =    TEMPLATEPATH.$this->stylesheet->src;
+   //$this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src;
+    $this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src;
     $this->source_uri =     $this->stylesheet->src;
     $this->target_path =    self::$upload_dir.$target_file;
     $this->target_uri =     self::$upload_uri.$target_file;

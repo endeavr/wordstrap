@@ -57,8 +57,9 @@ function optionsframework_options() {
 	}
 
 	// If using image radio buttons, define a directory path
-	// Be sure to use stylesheet_directory_uri() if using a child theme
-	$imagepath =  get_stylesheet_directory_uri() . '/assets/img/';
+	// Note that you may optionally reference the child theme's img directory
+	$imagepath =  get_template_directory_uri() . '/wordstrap/assets/img/';
+	$imagepath_child =  get_stylesheet_directory_uri() . '/assets/img/';
 	
 	// Options Background Repeat Options
 	$options_repeat = array(

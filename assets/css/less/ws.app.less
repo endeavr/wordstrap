@@ -1,21 +1,16 @@
 /*!
- * WordStrap App
+ * WordStrap Framework/Parent Theme | ws.app.less
+ * The styles specific to the WordStrap framework + theme
  */
-
-
-// App.less
-// The styles specific to the WordStrap framework
-// -------------------------------------------------------------
-
 
 // REPEAT VARIABLES & MIXINS
 // -------------------------
-// Required since we compile the responsive stuff separately
+// Required since we compile the App separately
 
-@import "ws.variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+@import "ws.variables.less"; // The WordStrap options panel controls most of the Bootstrap variables.
+@import "mixins.less"; // Watch this files carefully during Bootstrap upgrades as LESS innovations may break the LESSphp compiler.
 
-
-// THE THEME STYLES
+// THE FRAMEWORK + THEME STYLES
 // ------------------
-@import "ws.theme.less";
+@import "ws.wordstrap.less"; // These are the standard WordStrap enhancements to the Bootstrap syling.
+@import "ws.theme.less"; // Use this file to add custom styles to the active website if using WordStrap as a starter theme and not a parent theme.
