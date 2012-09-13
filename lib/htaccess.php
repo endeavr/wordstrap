@@ -57,9 +57,9 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
     if (strpos($content, FULL_RELATIVE_PLUGIN_PATH) === 0) {
       return str_replace(FULL_RELATIVE_PLUGIN_PATH, WP_BASE . '/plugins', $content);
     } else {
-      if (is_child_theme())
-        $content = str_replace(unleadingslashit(CHILD_THEME_PATH), '', $content);
-        
+      if (is_child_theme()) {
+        $content = str_replace(leadingslashit(CHILD_THEME_PATH), '', $content);
+        }
       return str_replace(leadingslashit(THEME_PATH), '', $content);
     }
   }
