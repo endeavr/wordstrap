@@ -408,17 +408,6 @@ add_filter('excerpt_length', 'roots_excerpt_length');
 add_filter('excerpt_more', 'roots_excerpt_more');
 
 /**
- * Replace various active menu class names with "active"
- */
-function roots_wp_nav_menu($text) {
-  $text = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', 'active', $text);
-  $text = preg_replace('/( active){2,}/', ' active', $text);
-  return $text;
-}
-
-add_filter('wp_nav_menu', 'roots_wp_nav_menu');
-
-/**
  * Cleaner walker for wp_nav_menu()
  *
  * Walker_Nav_Menu (WordPress default) example output:
