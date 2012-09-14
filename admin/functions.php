@@ -244,7 +244,7 @@ if ( !function_exists( 'options_typography_google_fonts' ) ) {
 		$google_mono_array = array_keys( options_typography_get_google_fonts_mono() );
 		$google_display_array = array_keys( options_typography_get_google_fonts_display() );
 		// Define all the options that possibly have a unique Google font
-		$ws_brand_font_type = of_get_option('wordstrap_brand_font_type', false);	
+		$ws_brand_font_type = of_get_option('ws_brand_font_type', false);	
 		$ws_sansfontfamily = of_get_option('ws_sansfontfamily', false);
 		$ws_seriffontfamily = of_get_option('ws_seriffontfamily', false);
 		$ws_monofontfamily = of_get_option('ws_monofontfamily', false);
