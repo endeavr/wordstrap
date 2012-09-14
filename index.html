@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="WordStrap : WordStrap is a website theme framework that provides an enhanced integration of WordPress + Twitter Bootstrap." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>WordStrap</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jloft/wordstrap">View on GitHub</a>
+
+          <h1 id="project_title">WordStrap</h1>
+          <h2 id="project_tagline">WordStrap is a website theme framework that provides an enhanced integration of WordPress + Twitter Bootstrap.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jloft/wordstrap/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jloft/wordstrap/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><strong>NOTE: <em>WordStrap is currently in a state of active development and not ready for production use at this time.</em></strong></p>
+
+<hr><h2>Standing on the Shoulders of Giants</h2>
+
+<h3>Twitter Bootstrap</h3>
+
+<p>As its name suggests, WordStrap's foremost purpose is to provides an enhanced integration of Twitter Bootstrap with WordPress. Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a widely respected and utilized development platform for standardizing the default user interface components of web applications.</p>
+
+<h3>HTML5 Boilerplate</h3>
+
+<p>Another significant resource that is often baked into the code base of modern web projects is HMTL5 Boilerplate. It draws from the combined knowledge and effort of 100s of developers. Its lightweight package properly implements key components like jQuery, Modernizr, and Normalize.css and offers optimized server configurations to boost performance. Most importantly, it provides insight into producing HTML5/CSS3 websites.</p>
+
+<h3>Roots (WordPress Starter Theme)</h3>
+
+<p>To get a jump-start on its development, WordStrap was conceived as a fork from Roots, a WordPress starter theme made for developers based on HTML5 Boilerplate  &amp; Twitter Bootstrap.</p>
+
+<p><strong>Roots Theme Features:</strong></p>
+
+<ul>
+<li>HTML5 Boilerplate’s markup and .htaccess</li>
+<li>Bootstrap from Twitter</li>
+<li>Theme wrapper</li>
+<li>Root relative URLs</li>
+<li>Clean URLs (no more /wp-content/)</li>
+<li>All static theme assets are rewritten to the website root (/assets/css/, /assets/img/, and /assets/js/)</li>
+<li>Cleaner HTML output of navigation menus</li>
+<li>Cleaner output of wp_head and enqueued scripts/styles</li>
+<li>Posts use the hNews microformat</li>
+</ul><p><strong>RESOURCE LINKS:</strong></p>
+
+<ul>
+<li>Roots Theme: <a href="http://www.rootstheme.com/">Website</a> | <a href="https://github.com/retlehs/roots">Github Repository</a>
+</li>
+<li>HTML 5 Boilerplate: <a href="http://html5boilerplate.com/">Website</a> | <a href="https://github.com/h5bp/html5-boilerplate">Github Repository</a>
+</li>
+<li>Twitter Bootstrap: <a href="http://twitter.github.com/bootstrap/">Website</a> | <a href="https://github.com/twitter/bootstrap">Github Repository</a>
+</li>
+</ul><hr><h2>Features</h2>
+
+<h3>Parent/Child Theme Compatibility</h3>
+
+<p>Unlike the standard version of the Roots Theme, <strong>WordStrap is intended to be a parent theme</strong>. Special thanks to Github user <a href="https://github.com/leoj3n" class="user-mention">@leoj3n</a> for his fork of Roots for adding parent/child theme compatibility.</p>
+
+<ul>
+<li>ROOTS Parent Theme Fork: <a href="https://github.com/leoj3n/roots">https://github.com/leoj3n/roots</a>
+</li>
+</ul><h3>The Power of LESS</h3>
+
+<p>LESS is a dynamic stylesheet language that extends CSS with dynamic behavior such as variables, mixins, operations and functions. The best way to leverage Bootstrap's potential is to interface with its LESS files.</p>
+
+<ul>
+<li>LESS CSS: <a href="http://lesscss.org/">Website</a> | <a href="https://github.com/cloudhead/less.js">Github Repository</a>
+</li>
+</ul><h3>Robust Options Panel</h3>
+
+<p>Most of the Bootstrap LESS variables may be set via a WordStrap theme options panel in the WordPress admin. In addition, there are LESS variables particular to WordStrap. These are used to set color and/or background textures/images for the body, header, content, sidebar, and footer. By tweaking the variables in the options panel, one may significantly influence the design and style of the theme. Special thanks goes to Devin Price (<a href="https://github.com/devinsays" class="user-mention">@devinsays</a>) for his brilliant options framework.</p>
+
+<ul>
+<li>OPTIONS FRAMEWORK THEME: <a href="http://wptheming.com/options-framework-theme/">Website</a> | <a href="https://github.com/devinsays/options-framework-theme">Github Repository</a>
+</li>
+</ul><h3>Included Child Theme (coming soon)</h3>
+
+<p>WordStrap may be used as a starter theme, but since it is best-suited to serve as a parent theme, a base child theme is provided that integrates with WordStrap's options panel and LESS files. A blank LESS file is provided in the child theme for further style customizations. This file is compiled last, so it will over-ride any other settings provided the right selectors are used. Ordinary CSS is always acceptable in a LESS file, so it is completely optional to include LESS properties.</p>
+
+<h3>Server-side LESS Compilation w/ Cached CSS Output</h3>
+
+<p>LESS files may be compiled by a developer offline and the resulting CSS file uploaded to the website's server via FTP or deployment. Alternatively, LESS files may be compiled via Javascript on the server. But neither of these methods fit WordStrap's specifications. Instead, WordStrap utilizes a compiler for LESS written in PHP called LESSphp. It is implemented by a WordPress plugin called WP-LESS. The plugin is integrated into WordStrap, so there is no need to activate it separately. These tools allow the variables set in the theme options panel to be passed through the compiler as the CSS is generated. In addition, the resulting CSS files are cached and new CSS is only generated when the theme options are updated.</p>
+
+<p><strong><em>NOTE:</em></strong> If the child theme LESS file is used, additions and edits to it will not automatically trigger a recompilation of the LESS files into CSS. So, it is necessary to go into the theme options panel and re-save it (even though no changes were made via the control panel). That will initiate the LESS compiler.</p>
+
+<ul>
+<li>LESSphp: <a href="http://leafo.net/lessphp/">Website</a> | <a href="https://github.com/cloudhead/less.js">Github Repository</a>
+</li>
+<li>WP-LESS Plugin: <a href="http://wordpress.org/extend/plugins/wp-less/">WordPress.org Download</a> | <a href="https://github.com/oncletom/wp-less">Github Repository</a>
+</li>
+</ul><h3>Mobile Devices + Responsive Design</h3>
+
+<p>Websites are viewed on all sorts of devices. There are two concerns raised by this fact: </p>
+
+<ol>
+<li><p>Browser viewport dimensions vary: 320px wide (smartphones), 768px (tablet), 1024px (laptop), 1200+ (desktop). WordStrap addresses this by enabling Bootstrap's responsive design features. Everything is in a fluid grid. </p></li>
+<li><p>Some devices have high resolution displays like Apple's "retina" technology. Thus, the user interface elements needs to scale accordingly. Therefore, it is ideal if a website's design minimizes its use of bitmap GIF, JPEG, and PNG images and implement them properly when necessary. WordStrap attempts to leverage CSS3 properties via the variables in the options panel to encourage "in-browser design" as much as possible where the browser itself does the heavy-lifting in rendering the website's appearance. In addition, icon fonts are available as an alternative to using PNGs and/or sprites to display iconography. Font Awesome and a custom font created using IcoMoon's online app are included. Since they are embedded in web fonts, the icons are vector images that may scale to any size. Furthermore, their color may be altered by setting a property in the theme options panel.</p></li>
+</ol><ul>
+<li>Font Awesome: <a href="http://fortawesome.github.com/Font-Awesome/">Website</a> | <a href="https://github.com/FortAwesome/Font-Awesome">Github Repository</a>
+</li>
+<li>IcoMoon: <a href="http://icomoon.io/">Web App for Generating Icon Fonts</a>
+</li>
+</ul><h2>Who is WordStrap for?</h2>
+
+<p>WordStrap is best suited for experienced web designers and developers familiar with WordPress.</p>
+
+<h2>Who is behind WordStrap?</h2>
+
+<p>Jason Loftis (<a href="https://github.com/jloft" class="user-mention">@jloft</a>) is a web designer and developer in San Diego. He has worked with WordPress since its inception in 2003. </p>
+
+<p>After specializing in the creation of numerous custom WordPress themes for his freelance clients, Jason concluded that he needed a WordPress framework to serve as the code base for all his projects. There are lots of great frameworks already available, but none suited his particular ideals. WordStrap is his first attempt at forging a framework that fits his particular tastes. Perhaps other like-minded developers will like it too.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">WordStrap maintained by <a href="https://github.com/jloft">jloft</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
