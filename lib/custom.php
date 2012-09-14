@@ -5,8 +5,8 @@
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 
    // WordStrap Theme Options
-   	include_once locate_template('/admin/functions.php');
-   // Include the options.php file directly in order to enable compatibility with the WordPress Front End Theme Customizer.
+   	require_once locate_template('/admin/functions.php');
+   // Include the options.php file explicitly in order to enable compatibility with the WordPress Front End Theme Customizer.
    	require_once locate_template('/admin/options.php');
    // Make the Theme Customizer more visible
    	add_action ('admin_menu', 'themedemo_admin');
