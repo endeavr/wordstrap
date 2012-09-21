@@ -1,0 +1,9 @@
+CHANGELOG for WP-LESS
+
+1. EDIT wp-less/lib/Stylesheet.class
+	Line 91 - Comment out original
+	// $this->source_path =    WP_CONTENT_DIR.preg_replace('#^'.WP_CONTENT_URL.'#U', '', $this->stylesheet->src);
+	Add new line 92 to replace 91
+    $this->source_path =    ABSPATH.$this->stylesheet->src;
+	
+	

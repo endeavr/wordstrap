@@ -1,0 +1,44 @@
+/* =Options Framework Overrides
+----------------------------------------------- */
+
+#builder_ws #optionsframework .section { padding-bottom: 30px; }
+
+/* =Primary Layout
+----------------------------------------------- */
+
+#builder_ws #optionsframework .metabox-holder { max-width:780px; }
+#builder_ws #optionsframework, #builder_ws #optionsframework .full-width { max-width:none; }
+#builder_ws #optionsframework .updated { max-width:none; }
+
+/* =General Classes
+----------------------------------------------- */
+
+#builder_ws #add_new_builder .warning { margin:0; }
+#builder_ws #add_new_builder .sample-layouts img { width:100%; }
+
+/* =Edit Layout
+----------------------------------------------- */
+	
+/* Header */
+#builder_ws #edit_layout #titlediv { margin:10px 0 10px 0; }
+#builder_ws #edit_layout #titlediv h2 { float:left; margin:0 12px; }
+#builder_ws #edit_layout #titlediv select { float:left; margin:4px 10px 0 20px; }
+#builder_ws #edit_layout #titlediv .button-secondary { float:left; margin:5px 5px 0 0; }
+#builder_ws #edit_layout #titlediv .ajax-loading { display:none; float:left; margin:9px 0 0 0; visibility:visible; }
+
+/* Main Sections */
+#builder_ws #builder #featured, #builder_ws #builder #primary, #builder_ws #builder #featured_below{ position:relative; }
+#builder_ws #builder #featured .sortable, #builder_ws #builder #primary .sortable, #builder_ws #builder #featured_below .sortable  { background:#f8f8f8; border:1px dashed #dfdfdf; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0 0 40px 0; padding:10px; }
+#builder_ws #builder #featured span.label, #builder_ws #builder #primary span.label, #builder_ws #builder #featured_below span.label { content:'Featured Area'; background:#f8f8f8; border:1px dashed #dfdfdf; border-bottom:none; color:#666666; font-size:10px; letter-spacing:1px; line-height:25px; padding:0 10px; position:absolute; top:-25px; right:10px; text-align:center; width:100px; }
+
+/* Elements */
+#builder_ws #builder .widget { margin-bottom:10px; }
+#builder_ws #optionsframework #builder .widget-content { padding:5px; }
+#builder_ws #builder #featured .empty:before { content:'Drag elements here to have them featured above the primary content and sidebar(s).'; color:#bbbbbb; display:block; font-family:Georgia, "Times New Roman", "Bitstream Charter", Times, serif; font-size:15px; font-style:italic; padding:10px; text-align:center; }
+#builder_ws #builder #primary .empty:before { content:'Click "Add New Element" above to add a new element here.'; color:#bbbbbb; display:block; font-family:Georgia, "Times New Roman", "Bitstream Charter", Times, serif; font-size:15px; font-style:italic; padding:10px; text-align:center; }
+#builder_ws #builder #featured_below .empty:before { content:'Drag elements here to have them featured below the primary content and sidebar(s).'; color:#bbbbbb; display:block; font-family:Georgia, "Times New Roman", "Bitstream Charter", Times, serif; font-size:15px; font-style:italic; padding:10px; text-align:center; }
+
+/* Sidebar */
+#builder_ws #optionsframework .inner-sidebar .section-radio label {  margin-bottom: 15px; width:80%; }
+#builder_ws #optionsframework .inner-sidebar .section-radio input.of-radio { margin-top: 2px; }
+#builder_ws #optionsframework .inner-sidebar .section-radio .heading { margin-bottom: 12px; }
