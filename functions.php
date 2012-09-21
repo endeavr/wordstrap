@@ -19,8 +19,6 @@ require_once locate_template('/lib/post-types.php');      // Custom post types
 require_once locate_template('/lib/metaboxes.php');       // Custom metaboxes
 require_once locate_template('/lib/custom.php');          // Custom functions
 
-require_once locate_template('/wordstrap/framework/wordstrap.php');          // WordStrap Framework functions
-
 function roots_setup() {
 
   // Make theme available for translation
