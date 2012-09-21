@@ -3,14 +3,6 @@ table of contents](README.md)
 
 # Theme library
 
-### actions.php
-
-This file is used to hook into [WordPress actions](http://codex.wordpress.org/Plugin_API/Action_Reference). 
-
-The `roots_feed_link()` function is used to hook into `wp_head()` to return a feed link if your site has any posts.
-
-The `roots_google_analytics()` function is used to hook into `wp_footer()` to return the [asynchronous Google Analytics snippet](http://mathiasbynens.be/notes/async-analytics-snippet) from HTML5 Boilerplate if an ID is defined in `config.php`.
-
 ### activation.php
 
 This file handles the theme activation. [About the theme activation](activation.md).
@@ -92,7 +84,7 @@ If you're using LESS, make sure you compile the files to the proper locations:
 JavaScript is loaded in the following order:
 
 1. `/theme/assets/js/vendor/modernizr-2.6.1.min.js` (in `head.php`)
-2. `jquery-1.8.0.min.js` via Google CDN with local fallback (in `head.php`)
+2. `jquery-1.8.2.min.js` via Google CDN with local fallback (in `head.php`)
 3. `/theme/assets/js/plugins.js`
 4. `/theme/assets/js/main.js`
 
@@ -105,13 +97,6 @@ Learn about `plugins.js` and `main.js` in the HTML5 Boilerplate [JavaScript docs
 ##### jQuery in the footer
 
 It's safe to move jQuery to the footer if you're able to avoid problems with certain plugins that improperly use jQuery. Copy the necessary lines from `head.php` to `footer.php` right before `wp_footer()`, then update the `wp_register_script()` calls `scripts.php` to have scripts in the footer by setting the last argument to `true`.
-
-### template-tags.php
-
-This file contains custom template tags. 
-
-`roots_entry_meta()` is used by the [theme templates](templates.md) to return the author byline and post time and date information.
-
 
 ### utils.php
 
