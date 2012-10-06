@@ -55,9 +55,6 @@ function roots_sidebar_class() {
 define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y
 define('POST_EXCERPT_LENGTH', 40);
 
-define('CHILD_THEME_NAME',          next(explode('/themes/', get_stylesheet_directory())));
-define('CHILD_THEME_PATH',          RELATIVE_CONTENT_PATH . '/themes/' . CHILD_THEME_NAME);
-
 /**
 * $content_width is a global variable used by WordPress for max image upload sizes and media embeds (in pixels)
 *
