@@ -17,7 +17,7 @@
   <div id="wrap" class="container" role="document">
     <div id="content" class="row">
       <?php tha_content_before(); ?>
-      <div id="main" class="<?php roots_main_class(); ?>" role="main">
+      <div id="main" class="<?php echo roots_main_class(); ?>" role="main">
         <?php tha_content_top(); ?>
         <?php include roots_template_path(); ?>
         <?php tha_content_bottom(); ?>
@@ -25,7 +25,7 @@
       <?php tha_content_after(); ?>
       <?php if (roots_display_sidebar()) : ?>
       <?php tha_sidebars_before(); ?>
-      <aside id="sidebar" class="<?php roots_sidebar_class(); ?>" role="complementary">
+      <aside id="sidebar" class="<?php echo roots_sidebar_class(); ?>" role="complementary">
         <?php tha_sidebar_top(); ?>
         <?php get_template_part('templates/sidebar'); ?>
         <?php tha_sidebar_bottom(); ?>
