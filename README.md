@@ -19,11 +19,13 @@ A changelog and WordStrap specific documentation will be added once 1.0 is relea
 
 ## Configuration
 
-Edit `lib/config.php` to enable support for major functionality and to define constants that are used throughout the theme.
+Edit `lib/config.php` to enable or disable support for various theme functions and to define constants that are used throughout the theme.
+
+Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
 
 ## Documentation
 
-Take a look at the [documentation table of contents](/retlehs/roots/blob/master/doc/README.md).
+Take a look at the [documentation table of contents](/retlehs/roots/blob/master/doc/TOC.md).
 
 ## Features
 
@@ -44,17 +46,17 @@ Everyone is welcome to help [contribute](/retlehs/roots/blob/master/CONTRIBUTING
 
 * Reporting issues (please read [issue guidelines](https://github.com/necolas/issue-guidelines))
 * Suggesting new features
-* Writing or editing [docs](/retlehs/roots/blob/master/doc/README.md)
+* Writing or editing [docs](/retlehs/roots/blob/master/doc/TOC.md)
 * Writing or refactoring code
 * Fixing [issues](https://github.com/retlehs/roots/issues)
-* Replying to questions on the [mailing list](http://groups.google.com/group/roots-theme)
+* Replying to questions on the [Google Group](http://groups.google.com/group/roots-theme)
 
 ## Project information
 
 * Source: [https://github.com/retlehs/roots](https://github.com/retlehs/roots)
 * Web: [http://www.rootstheme.com/](http://www.rootstheme.com/)
-* Mailing list: [http://groups.google.com/group/roots-theme](http://groups.google.com/group/roots-theme)
-* Twitter: [@retlehs](https://twitter.com/#!/retlehs)
+* Google Group: [http://groups.google.com/group/roots-theme](http://groups.google.com/group/roots-theme)
+* Twitter Updates: [@retlehs](https://twitter.com/#!/retlehs)
 * Contributors: [https://github.com/retlehs/roots/contributors](https://github.com/retlehs/roots/contributors)
 
 * This Fork: [https://github.com/jloft/wordstrap](https://github.com/jloft/wordstrap)

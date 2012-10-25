@@ -1,4 +1,10 @@
 ### HEAD
+* Return instead of echo class names in `roots_main_class` and `roots_sidebar_class`
+* Move nav customizations into `lib/nav.php`
+
+### 6.1.0: October 2nd, 2012
+* Change roots_sidebar into a more explicit configuration array
+* Re-organize configuration/setup files
 * Update to jQuery 1.8.2
 * Refactor/simplify Roots vCard Widget
 * Move custom entry_meta code into template

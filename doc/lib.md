@@ -1,5 +1,5 @@
 [Roots Theme homepage](http://www.rootstheme.com/) | [Documentation
-table of contents](README.md)
+table of contents](TOC.md)
 
 # Theme library
 
@@ -28,12 +28,7 @@ If you don't want to use one of the features, either comment out the line or rem
 
 #### Define which pages shouldn't have the sidebar
 
-`roots_sidebar()` is used to define which pages shouldn't get the sidebar. By default, the 404 and `page-custom.php` template are full width. If you would like to remove the sidebar from additional pages, add in a proper conditional to the first `if` statement.
-
-If you had a page named Contact, you would update the statement to look like:
-
-    if (is_404() || is_page_template('page-custom.php') || is_page('contact')) {
-
+`roots_display_sidebar()` is used to define which pages shouldn't get the sidebar. By default, the 404, front `front-page.php` and `page-custom.php` templates are full width. If you would like to remove the sidebar from additional pages, add in the appropriate conditional or page template name.
 
 ### h5bp-htaccess
 
@@ -51,9 +46,17 @@ This file contains HTML5 Boilerplate's `.htaccess` which is automatically added 
 
 This file handles the clean URL rewrites and HTML5 Boilerplate `.htaccess`. [About the rewrites](rewrites.md).
 
+### init.php
+
+This file runs the initial theme setup and defines helper constants for later use
+
 ### metaboxes.php
 
 This file is a placeholder for you to put in custom metaboxes. We recommend the use of [Custom Metaboxes and Fields for WordPress](https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress).
+
+### nav.php
+
+This file contains all the custom nav modifications (for Bootstrap) and clean up.
 
 ### post-types.php
 
@@ -61,7 +64,11 @@ This file is a placeholder for you to put in [custom post types](http://codex.wo
 
 ### scripts.php
 
-This file handles all of the CSS and JavaScript. 
+This file handles all of the CSS and JavaScript.
+
+### sidebar.php
+
+Class which provides a simple configuration interface to define what pages you want to show the sidebar on.
 
 #### Stylesheets
 
@@ -72,7 +79,7 @@ Stylesheets are enqueued in the following order:
 3. `/theme/assets/css/app.css`
 4. `/child-theme/style.css` (if a child theme is activated)
 
-`app.css` should be used for your site specific styling. 
+`app.css` should be used for your site specific styling.
 
 If you're using LESS, make sure you compile the files to the proper locations:
 
@@ -92,7 +99,7 @@ jQuery is loaded in `head.php` using the same method from HTML5 Boilerplate: gra
 
 `plugins.js` contains a minified version of all the latest Bootstrap plugins.
 
-Learn about `plugins.js` and `main.js` in the HTML5 Boilerplate [JavaScript docs](https://github.com/h5bp/html5-boilerplate/blob/master/doc/js.md). 
+Learn about `plugins.js` and `main.js` in the HTML5 Boilerplate [JavaScript docs](https://github.com/h5bp/html5-boilerplate/blob/master/doc/js.md).
 
 ##### jQuery in the footer
 
