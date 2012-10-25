@@ -209,7 +209,7 @@ function options_typography_get_google_fonts_display() {
 		'Limelight, serif' => 'Limelight',
 		'"Luckiest Guy", sans-serif' => 'Luckiest Guy',	
 		'Lobster, serif' => 'Lobster',
-		'"Lobsetr Two", serif' => 'Lobster Two',
+		'"Lobster Two", serif' => 'Lobster Two',
 		'"Love Ya Like A Sister", serif' => 'Love Ya Like A Sister',
 		'"Mate SC", serif' => 'Mate SC',
 		'McLaren, sans-serif' => 'McLaren',
