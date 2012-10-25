@@ -17,13 +17,7 @@
       </div>
       <?php tha_content_after(); ?>
       <?php if (roots_display_sidebar()) : ?>
-      <?php tha_sidebars_before(); ?>
-      <aside id="sidebar" class="<?php echo roots_sidebar_class(); ?>" role="complementary">
-        <?php tha_sidebar_top(); ?>
         <?php get_template_part('templates/sidebar'); ?>
-        <?php tha_sidebar_bottom(); ?>
-      </aside>
-      <?php tha_sidebars_after(); ?>
       <?php endif; ?>
     </div><!-- /#content -->
   </div><!-- /#wrap -->
