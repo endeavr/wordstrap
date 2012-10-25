@@ -30,13 +30,33 @@ add_filter( 'of_sanitize_images', 'of_sanitize_enum', 10, 2);
 
 add_filter( 'of_sanitize_bodypattern', 'of_sanitize_enum', 10, 2);
 
+/* Header Pattern */
+
+add_filter( 'of_sanitize_headerpattern', 'of_sanitize_enum', 10, 2);
+
+/* Masthead Pattern */
+
+add_filter( 'of_sanitize_mastpattern', 'of_sanitize_enum', 10, 2);
+
+/* Navbar Pattern */
+
+add_filter( 'of_sanitize_navbarpattern', 'of_sanitize_enum', 10, 2);
+
 /* Wrap Pattern */
 
 add_filter( 'of_sanitize_wrappattern', 'of_sanitize_enum', 10, 2);
 
+/* Sidebar Pattern */
+
+add_filter( 'of_sanitize_sidebarpattern', 'of_sanitize_enum', 10, 2);
+
 /* Footer Pattern */
 
 add_filter( 'of_sanitize_footerpattern', 'of_sanitize_enum', 10, 2);
+
+/* Colophon Pattern */
+
+add_filter( 'of_sanitize_colophonpattern', 'of_sanitize_enum', 10, 2);
 
 /* Checkbox */
 
