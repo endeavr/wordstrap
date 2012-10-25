@@ -35,6 +35,24 @@ function optionsframework_custom_css () {
 	wp_enqueue_style( 'fontawesome_css' );
 }
 
+ /* 
+ * Create an array of patterns from directory of images
+ */
+ 
+ function options_patterns_get_file_list( $directory_path, $filetype, $directory_uri ) {
+    $patterns = array();
+    $pattern_files = array();
+    if ( is_dir( $directory_path ) ) {
+        $pattern_files = glob( $directory_path . "*.$filetype", GLOB_BRACE);
+        foreach (array_reverse( $pattern_files ) as $file ) {
+            $file_name = str_replace( $directory_path, '', $file);
+            $file = str_replace( $directory_path, site_url().$directory_uri, $file);
+            $patterns[ $file_name ] = $file;
+        }
+    }
+    return $patterns;
+}
+
  /**
  * Returns an array of system fonts
  * Feel free to edit this, update the font fallbacks, etc.
