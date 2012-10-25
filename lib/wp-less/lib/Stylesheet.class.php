@@ -70,6 +70,7 @@ class WPLessStylesheet
     $target_path = preg_replace('#^'.get_theme_root_uri().'#U', '', $this->stylesheet->src);
     $target_path = preg_replace('/.less$/U', '', $target_path);
 
+    // $target_path .= '.cache/%s.css';
     $target_path .= '-%s.css';
 
     return apply_filters('wp-less_stylesheet_compute_target_path', $target_path);
@@ -94,7 +95,7 @@ class WPLessStylesheet
     $this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src;
     $this->source_uri =     $this->stylesheet->src;
     $this->target_path =    self::$upload_dir.$target_file;
-    $this->target_uri =     self::$upload_uri.$target_file;
+    $this->target_uri =     self::$upload_uri.$target_file; 
 
     $this->source_timestamp = filemtime($this->source_path);
   }
