@@ -35,6 +35,24 @@ function optionsframework_custom_css () {
 	wp_enqueue_style( 'fontawesome_css' );
 }
 
+ /* 
+ * Create an array of patterns from directory of images
+ */
+ 
+ function options_patterns_get_file_list( $directory_path, $filetype, $directory_uri ) {
+    $patterns = array();
+    $pattern_files = array();
+    if ( is_dir( $directory_path ) ) {
+        $pattern_files = glob( $directory_path . "*.$filetype", GLOB_BRACE);
+        foreach (array_reverse( $pattern_files ) as $file ) {
+            $file_name = str_replace( $directory_path, '', $file);
+            $file = str_replace( $directory_path, site_url().$directory_uri, $file);
+            $patterns[ $file_name ] = $file;
+        }
+    }
+    return $patterns;
+}
+
  /**
  * Returns an array of system fonts
  * Feel free to edit this, update the font fallbacks, etc.
@@ -191,7 +209,7 @@ function options_typography_get_google_fonts_display() {
 		'Limelight, serif' => 'Limelight',
 		'"Luckiest Guy", sans-serif' => 'Luckiest Guy',	
 		'Lobster, serif' => 'Lobster',
-		'"Lobsetr Two", serif' => 'Lobster Two',
+		'"Lobster Two", serif' => 'Lobster Two',
 		'"Love Ya Like A Sister", serif' => 'Love Ya Like A Sister',
 		'"Mate SC", serif' => 'Mate SC',
 		'McLaren, sans-serif' => 'McLaren',
@@ -244,7 +262,7 @@ if ( !function_exists( 'options_typography_google_fonts' ) ) {
 		$google_mono_array = array_keys( options_typography_get_google_fonts_mono() );
 		$google_display_array = array_keys( options_typography_get_google_fonts_display() );
 		// Define all the options that possibly have a unique Google font
-		$ws_brand_font_type = of_get_option('wordstrap_brand_font_type', false);	
+		$ws_brand_font_type = of_get_option('ws_brand_font_type', false);	
 		$ws_sansfontfamily = of_get_option('ws_sansfontfamily', false);
 		$ws_seriffontfamily = of_get_option('ws_seriffontfamily', false);
 		$ws_monofontfamily = of_get_option('ws_monofontfamily', false);

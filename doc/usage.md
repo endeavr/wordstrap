@@ -1,5 +1,5 @@
 [Roots Theme homepage](http://www.rootstheme.com/) | [Documentation
-table of contents](README.md)
+table of contents](TOC.md)
 
 # Usage
 
@@ -28,7 +28,7 @@ A basic Roots theme initially looks like this:
 │       ├── main.js
 │       ├── plugins.js (includes bootstrap.js)
 │       └── vendor
-│           ├── jquery-1.8.0.min.js
+│           ├── jquery-1.8.2.min.js
 │           └── modernizr-2.6.1.min.js
 ├── doc
 ├── lang

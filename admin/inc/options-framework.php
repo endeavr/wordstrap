@@ -27,7 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 /*
  CUSTOM CHANGELOG
- 1. Line 77 -> Specified the sub-directory path where options.php is.
+ 1. Line 78 -> Specified the sub-directory path where options.php is.
+ 2. Lines 201-202 -> Added postbox.js and dashboard.js on 2012.10.20 in order to incorporate the toggling of theme option sub-headings.
 */
 
 if ( !function_exists( 'add_action' ) ) {
@@ -197,6 +198,8 @@ function optionsframework_load_scripts($hook) {
 	
 	// Enqueued scripts
 	wp_enqueue_script('jquery-ui-core');
+	wp_enqueue_script('postbox'); // Added on 2012.10.20 in order to incorporate the toggling of theme option sub-headings.
+	wp_enqueue_script('dashboard'); // Added on 2012.10.20 in order to incorporate the toggling of theme option sub-headings.
 	wp_enqueue_script('color-picker', OPTIONS_FRAMEWORK_DIRECTORY.'js/colorpicker.js', array('jquery'));
 	wp_enqueue_script('options-custom', OPTIONS_FRAMEWORK_DIRECTORY.'js/options-custom.js', array('jquery'));
 	
