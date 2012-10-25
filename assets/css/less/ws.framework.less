@@ -1,19 +1,17 @@
 /*!
- * Bootstrap v2.1.1
- *
- * Copyright 2012 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ * WordStrap Framework / Parent Theme | ws.framework.less
+ * The Twitter Bootstrap Styles
  */
+ 
+// bootstrap.less
+// ------------------ 
 
 // CSS Reset
 @import "reset.less";
 
 // Core variables and mixins
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+@import "ws.variables.less"; // The WordStrap options panel controls most of the Bootstrap variables.
+@import "mixins.less"; // Watch these files carefully during Bootstrap upgrades as LESS innovations may break the LESSphp compiler.
 
 // Grid system and page structure
 @import "scaffolding.less";
@@ -21,14 +19,13 @@
 @import "layouts.less";
 
 // Base CSS
-@import "type.less";
+@import "ws.type.less";
 @import "code.less";
 @import "forms.less";
 @import "tables.less";
 
 // Components: common
-//@import "sprites.less";
-@import "font-awesome.less";
+@import "font-awesome.less"; // This replaces the Bootstrap sprites.less file
 @import "dropdowns.less";
 @import "wells.less";
 @import "component-animations.less";
@@ -61,3 +58,29 @@
 
 // Utility classes
 @import "utilities.less"; // Has to be last to override when necessary
+
+/*-----------------------------------------------------------------------------------*/
+
+// responsive.less
+
+@import "responsive-utilities.less";
+
+
+// MEDIA QUERIES
+// ------------------
+
+// Large desktops
+@import "responsive-1200px-min.less";
+
+// Tablets to regular desktops
+@import "responsive-768px-979px.less";
+
+// Phones to portrait tablets and narrow desktops
+@import "responsive-767px-max.less";
+
+
+// RESPONSIVE NAVBAR
+// ------------------
+
+// From 979px and below, show a button to toggle navbar contents
+@import "responsive-navbar.less";
