@@ -33,6 +33,9 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
   function roots_add_rewrites($content) {
     global $wp_rewrite;
     $roots_new_non_wp_rules = array(
+      //'css/(.*)'      => THEME_PATH . '/css/$1',
+      //'js/(.*)'       => THEME_PATH . '/js/$1',
+      //'img/(.*)'      => THEME_PATH . '/img/$1',
       'plugins/(.*)'  => RELATIVE_PLUGIN_PATH . '/$1'
     );
     $wp_rewrite->non_wp_rules = array_merge($wp_rewrite->non_wp_rules, $roots_new_non_wp_rules);
@@ -57,10 +60,14 @@ if (stristr($_SERVER['SERVER_SOFTWARE'], 'apache') || stristr($_SERVER['SERVER_S
     if (strpos($content, FULL_RELATIVE_PLUGIN_PATH) === 0) {
       return str_replace(FULL_RELATIVE_PLUGIN_PATH, WP_BASE . '/plugins', $content);
     } else {
-      if (is_child_theme()) {
-        $content = str_replace(leadingslashit(CHILD_THEME_PATH), '', $content);
-        }
-      return str_replace(leadingslashit(THEME_PATH), '', $content);
+      // if (is_child_theme()) {
+      //  $content = str_replace(leadingslashit(CHILD_THEME_PATH), '', $content);
+      //  }
+      // return str_replace(leadingslashit(THEME_PATH), '', $content);
+      if (is_child_theme())
+        $content = str_replace(unleadingslashit(CHILD_THEME_PATH), '', $content);
+        
+      return untrailingslashit(str_replace(leadingslashit(THEME_PATH), '', $content));
     }
   }
 
