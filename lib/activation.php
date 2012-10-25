@@ -286,6 +286,11 @@ function roots_theme_activation_action() {
       $primary_nav_id = wp_create_nav_menu('Primary Navigation', array('slug' => 'primary_navigation'));
       $roots_nav_theme_mod['primary_navigation'] = $primary_nav_id;
     }
+    
+    if (!has_nav_menu('footer_navigation')) {
+      $footer_nav_id = wp_create_nav_menu('Footer Navigation', array('slug' => 'footer_navigation'));
+      $roots_nav_theme_mod['footer_navigation'] = $footer_nav_id;
+    } 
 
     if ($roots_nav_theme_mod) {
       set_theme_mod('nav_menu_locations', $roots_nav_theme_mod);

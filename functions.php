@@ -2,6 +2,8 @@
 /**
  * Roots functions
  */
+ 
+//ini_set("memory_limit","40M"); 
 
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 
@@ -11,8 +13,6 @@ require_once locate_template('/lib/activation.php');      // Theme activation
 require_once locate_template('/lib/cleanup.php');         // Cleanup
 require_once locate_template('/lib/htaccess.php');        // Rewrites for assets, H5BP .htaccess
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
-require_once locate_template('/lib/template-tags.php');   // Template tags
-require_once locate_template('/lib/actions.php');         // Actions
 require_once locate_template('/lib/tha-theme-hooks.php'); // Hooks
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
 require_once locate_template('/lib/post-types.php');      // Custom post types
@@ -27,6 +27,7 @@ function roots_setup() {
   // Register wp_nav_menu() menus (http://codex.wordpress.org/Function_Reference/register_nav_menus)
   register_nav_menus(array(
     'primary_navigation' => __('Primary Navigation', 'roots'),
+    'footer_navigation' => __('Footer Navigation', 'roots')
   ));
 
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)

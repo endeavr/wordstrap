@@ -4,7 +4,10 @@
  * Generates the tabs that are used in the options menu
  
  CUSTOM CHANGELOG
- 1. Line 22 and 379 under the heading tabs function and output -> Added the <i class="icon"></i>
+ 1. Heading tabs function and output in 2 places -> Added the <i class="icon"></i>
+ 2. Added custom interface types for patterns: BODY, HEADER, MASTHEAD, NAVBAR, WRAP, SIDEBAR, FOOTER, COLOPHON.
+ 3. Added custom interface type: NOTE. Excluded NOTE from certain formatting / saving + made sure it is wrapped just like Info and Heading.
+ 4. Added custom interface types in order to wrap option sections in accordion toggle UI: INFOTOGGLE + CLOSETOGGLE. These also needed to be excluded from formatting/saving.
  
  */
 
@@ -15,11 +18,11 @@ function optionsframework_tabs() {
 	$menu = '';
 
 	foreach ($options as $value) {
-		// Heading for Navigation
+		// Heading for Navigation => Added <i class="icon"></i> ----------> 2012.10.20
 		if ($value['type'] == "heading") {
 			$jquery_click_hook = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($value['name']) );
 			$jquery_click_hook = "of-option-" . $jquery_click_hook;
-			$menu .= '<a id="'.  esc_attr( $jquery_click_hook ) . '-tab" class="nav-tab" title="' . esc_attr( $value['name'] ) . '" href="' . esc_attr( '#'.  $jquery_click_hook ) . '"><i class="icon-' . esc_attr( $value['name'] ) . '"></i><span class="heading">' . esc_html( $value['name'] ) . '</span></a>';
+			$menu .= '<a id="'.  esc_attr( $jquery_click_hook ) . '-tab" class="nav-tab" title="' . esc_attr( $value['name'] ) . '" href="' . esc_attr( '#'.  $jquery_click_hook ) . '"><i class="icon-' . esc_attr( $value['name'] ) . '"></i><span class="heading">' . esc_html( $value['name'] ) . '</span></a>';  
 		}
 	}
 
@@ -58,7 +61,7 @@ function optionsframework_fields() {
 		$output = '';
 
 		// Wrap all options
-		if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) ) {
+		if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) && ( $value['type'] != "note" ) && ( $value['type'] != "infotoggle" ) && ( $value['type'] != "closetoggle" ) ) {
 
 			// Keep all ids lowercase with no spaces
 			$value['id'] = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($value['id']) );
@@ -91,7 +94,7 @@ function optionsframework_fields() {
 		}
 
 		// If the option is already saved, ovveride $val
-		if ( ( $value['type'] != 'heading' ) && ( $value['type'] != 'info') ) {
+		if ( ( $value['type'] != 'heading' ) && ( $value['type'] != 'info') && ( $value['type'] != 'note') && ( $value['type'] != "infotoggle" ) && ( $value['type'] != "closetoggle" ) ) {
 			if ( isset( $settings[($value['id'])]) ) {
 				$val = $settings[($value['id'])];
 				// Striping slashes of non-array options
@@ -170,10 +173,63 @@ function optionsframework_fields() {
  				$output .= '<img src="' . esc_url( $option ) . '" alt="' . $option .'" class="of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;" />';
  			}
  			break;
-			
-		// BODY Pattern (CUSTOM)
-		case "bodypattern":
+ 			
+ 		// Info Toggle (CUSTOM) ----------> 2012.10.20
+		case "infotoggle":
+			$id = '';
+			$class = '';
+			if ( isset( $value['id'] ) ) {
+				$id = 'id="' . esc_attr( $value['id'] ) . '" ';
+			}
+			if ( isset( $value['type'] ) ) {
+				$class .= ' section-' . $value['type'];
+			}
+			if ( isset( $value['class'] ) ) {
+				$class .= ' ' . $value['class'];
+			}
 
+			$output .= '<div ' . $id . 'class="postbox closed ' . esc_attr( $class ) . '"><div class="handlediv" title="Click to toggle"><br></div>' . "\n";
+			if ( isset($value['name']) ) {
+				$output .= '<h3 class="hndle"><span>' . esc_html( $value['name'] ) . '</span></h3>' . "\n";
+			}
+			if ( $value['desc'] ) {
+				$output .= '<div class="inside"><div class="infodesc">' . apply_filters('of_sanitize_info', $value['desc'] ) . '</div>' . "\n";
+			}
+
+			break;	
+			
+		// Close Toggle (CUSTOM) ----------> 2012.10.20
+		case "closetoggle":
+			$output .= '</div></div>' . "\n";
+			break;			
+ 			
+ 		// NOTE (CUSTOM) ----------> 2012.10.20
+		case "note":
+			$id = '';
+			$class = 'section';
+			if ( isset( $value['id'] ) ) {
+				$id = 'id="' . esc_attr( $value['id'] ) . '" ';
+			}
+			if ( isset( $value['type'] ) ) {
+				$class .= ' section-' . $value['type'];
+			}
+			if ( isset( $value['class'] ) ) {
+				$class .= ' ' . $value['class'];
+			}
+
+			$output .= '<div ' . $id . 'class="' . esc_attr( $class ) . '">' . "\n";
+			if ( isset($value['name']) ) {
+				$output .= '<h5 class="note">' . esc_html( $value['name'] ) . '</h5>' . "\n";
+			}
+			if ( $value['desc'] ) {
+				$output .= apply_filters('of_sanitize_info', $value['desc'] ) . "\n";
+			}
+			$output .= '</div>' . "\n";
+			break;			
+ 			
+ 	     // BODY Pattern (CUSTOM) ----------> 2012.10.20
+	     case "bodypattern":
+	
 			$bodybkgd = of_get_option('ws_bodybackground');
 			$name = $option_name .'['. $value['id'] .']';
 			foreach ( $value['options'] as $key => $option ) {
@@ -189,9 +245,69 @@ function optionsframework_fields() {
 				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
 				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $bodybkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
 			}
-			break;
+			break;										
 			
-		// WRAP Pattern (CUSTOM)
+		// HEADER Pattern (CUSTOM) ----------> 2012.10.20
+		case "headerpattern":
+
+			$headerbkgd = of_get_option('ws_headerbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $headerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;			
+			
+		// MAST Pattern (CUSTOM) ----------> 2012.10.20
+		case "mastpattern":
+
+			$headerbkgd = of_get_option('ws_mastbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $headerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;	
+			
+		// NAVBAR Pattern (CUSTOM) ----------> 2012.10.20
+		case "navbarpattern":
+
+			$headerbkgd = of_get_option('ws_navbarbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $headerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;								
+			
+		// WRAP Pattern (CUSTOM) ----------> 2012.10.20
 		case "wrappattern":
 
 			$wrapbkgd = of_get_option('ws_wrapbackground');
@@ -211,7 +327,27 @@ function optionsframework_fields() {
 			}
 			break;
 			
-		// FOOTER Pattern (CUSTOM)
+		// SIDEBAR Pattern (CUSTOM) ----------> 2012.10.20
+		case "sidebarpattern":
+
+			$headerbkgd = of_get_option('ws_sidebarbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $headerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;			
+			
+		// FOOTER Pattern (CUSTOM) ----------> 2012.10.20
 		case "footerpattern":
 
 			$footerbkgd = of_get_option('ws_footerbackground');
@@ -229,7 +365,27 @@ function optionsframework_fields() {
 				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
 				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $footerbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
 			}
-			break;								
+			break;
+			
+		// COLOPHON Pattern (CUSTOM) ----------> 2012.10.20
+		case "colophonpattern":
+
+			$colophonbkgd = of_get_option('ws_colophonbackground');
+			$name = $option_name .'['. $value['id'] .']';
+			foreach ( $value['options'] as $key => $option ) {
+				$selected = '';
+				$checked = '';
+				if ( $val != '' ) {
+					if ( $val == $key ) {
+						$selected = ' of-radio-img-selected';
+						$checked = ' checked="checked"';
+					}
+				}
+				$output .= '<input type="radio" id="' . esc_attr( $value['id'] .'_'. $key) . '" class="of-radio-img-radio" value="' . esc_attr( $key ) . '" name="' . esc_attr( $name ) . '" '. $checked .' />';
+				$output .= '<div class="of-radio-img-label">' . esc_html( $key ) . '</div>';
+				$output .= '<div style="background-image:url(' . esc_url( $option ) . '); background-color:' . esc_attr( $colophonbkgd ) .';" class="radio-img-css-bkgd of-radio-img-img' . $selected .'" onclick="document.getElementById(\''. esc_attr($value['id'] .'_'. $key) .'\').checked=true;"></div>';
+			}
+			break;											
 
 		// Checkbox
 		case "checkbox":
@@ -427,9 +583,9 @@ function optionsframework_fields() {
 				$output .= apply_filters('of_sanitize_info', $value['desc'] ) . "\n";
 			}
 			$output .= '</div>' . "\n";
-			break;		
+			break;								
 
-		// Heading for Navigation
+		// Heading for Navigation => Added <i class="icon"></i> ----------> 2012.10.20
 		case "heading":
 			if ($counter >= 2) {
 				$output .= '</div>'."\n";
@@ -438,11 +594,11 @@ function optionsframework_fields() {
 			$jquery_click_hook = "of-option-" . $jquery_click_hook;
 			$menu .= '<a id="'.  esc_attr( $jquery_click_hook ) . '-tab" class="nav-tab" title="' . esc_attr( $value['name'] ) . '" href="' . esc_attr( '#'.  $jquery_click_hook ) . '"><i class="icon-' . esc_attr( $value['name'] ) . '"></i><span class="heading">' . esc_html( $value['name'] ) . '</span></a>';
 			$output .= '<div class="group" id="' . esc_attr( $jquery_click_hook ) . '">';
-			$output .= '<h3>' . esc_html( $value['name'] ) . '</h3>' . "\n";
+			$output .= '<h2>' . esc_html( $value['name'] ) . '</h2>' . "\n"; // Changed to h2 instead of h3 ----------> 2012.10.20
 			break;
 		}
 
-		if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) ) {
+		if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) && ( $value['type'] != "note" ) && ( $value['type'] != "infotoggle" ) && ( $value['type'] != "closetoggle" ) ) { // Added the Note type here 2012.10.20
 			$output .= '</div>';
 			if ( ( $value['type'] != "checkbox" ) && ( $value['type'] != "editor" ) ) {
 				$output .= '<div class="explain">' . wp_kses( $explain_value, $allowedtags) . '</div>'."\n";

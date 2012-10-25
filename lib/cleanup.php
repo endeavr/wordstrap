@@ -101,9 +101,9 @@ add_filter('style_loader_tag', 'roots_clean_style_tag');
 function roots_body_class($classes) {
   // Add 'top-navbar' class if using Bootstrap's Navbar
   // Used to add styling to account for the WordPress admin bar
-  if (current_theme_supports('bootstrap-top-navbar')) {
-    $classes[] = 'top-navbar';
-  }
+  // if (current_theme_supports('bootstrap-top-navbar')) {
+    // $classes[] = 'top-navbar';
+  // }
 
   // Add post/page slug
   if (is_single() || is_page() && !is_front_page()) {
@@ -237,16 +237,16 @@ function roots_caption($output, $attr, $content) {
   }
 
   $defaults = array(
-    'id' => '',
-    'align' => 'alignnone',
-    'width' => '',
+    'id'      => '',
+    'align'   => 'alignnone',
+    'width'   => '',
     'caption' => ''
   );
 
   $attr = shortcode_atts($defaults, $attr);
 
   // If the width is less than 1 or there is no caption, return the content wrapped between the [caption] tags
-  if (1 > $attr['width'] || empty($attr['caption'])) {
+  if ($attr['width'] < 1 || empty($attr['caption'])) {
     return $content;
   }
 
@@ -435,6 +435,15 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
       $item_html = str_replace('<a', '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#"', $item_html);
       $item_html = str_replace('</a>', ' <b class="caret"></b></a>', $item_html);
     }
+    elseif (in_array('divider-vertical', $item->classes)) {
+      $item_html = '<li class="divider-vertical">';
+    }  
+    elseif (in_array('divider', $item->classes)) {
+      $item_html = '<li class="divider">';
+    }
+    elseif (in_array('nav-header', $item->classes)) {
+      $item_html = '<li class="nav-header">' . $item->title;
+    }
 
     $output .= $item_html;
   }
@@ -468,11 +477,6 @@ function roots_nav_menu_css_class($classes, $item) {
   $classes = array_unique($classes);
 
   return array_filter($classes, 'is_element_empty');
-}
-
-function is_element_empty($element) {
-  $element = trim($element);
-  return empty($element) ? false : true;
 }
 
 add_filter('nav_menu_css_class', 'roots_nav_menu_css_class', 10, 2);
