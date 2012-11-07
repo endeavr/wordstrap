@@ -84,6 +84,9 @@ $ws_sidebaroption = of_get_option('ws_sidebaroption');
 $ws_footercontainer = of_get_option('ws_footercontainer');
 $ws_footeroption = of_get_option('ws_footeroption');
 
+$ws_colophoncontainer = of_get_option('ws_colophoncontainer');
+$ws_colophonoption = of_get_option('ws_colophonoption');
+
 // Place the NAVBAR via the appropriate HEADER 'THA' hook
 
 	function ws_navbar_placement ( $ws_navbar_placement ) {
@@ -98,15 +101,14 @@ $ws_footeroption = of_get_option('ws_footeroption');
 	}	
 
 // Filter Body Class	
-function ws_gradient_body_class($classes) {
-	global $ws_bodyoption;
-	if ( $ws_bodyoption == 'gradient' ) {
-		$classes[] = 'gradient';
-	}
+function ws_body_class($classes) {
+	global $ws_bodyoption, $ws_navbarfixed;
+	if ( $ws_bodyoption == 'gradient' ) : $classes[] = 'gradient'; endif;
+	//if ( $ws_navbarfixed == 'navbar-fixed' ) : $classes[] = 'body-navbar-fixed-top'; endif;
 	return $classes;
 }
 
-add_filter('body_class', 'ws_gradient_body_class');	
+add_filter('body_class', 'ws_body_class');	
 
 // Register WordStrap Hooks
 define( 'WS_HOOKS_VERSION', '1.0' );
@@ -300,9 +302,10 @@ add_filter( 'current_theme_supports-ws_hooks', 'ws_current_theme_supports', 10, 
 // Filter WRAP class
 
 	function ws_wrap_variables ( $classes ) {
-		global $ws_wrapcontainer, $ws_wrapoption;
-		if ( $ws_wrapcontainer == 'contain' ) : $classes[] = 'container'; endif;
+		global $ws_wrapcontainer, $ws_wrapoption, $ws_navbarfixed;
+		//if ( $ws_wrapcontainer == 'contain' ) : $classes[] = 'container'; endif;
 		if ( $ws_wrapoption == 'gradient' ) : $classes[] = 'gradient'; endif;
+		//if ( $ws_navbarfixed == 'navbar-fixed') : $classes[] = 'wrap-navbar-fixed-top'; endif;
 		return $classes;		
 	}
 	

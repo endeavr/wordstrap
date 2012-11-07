@@ -30,7 +30,7 @@
 						<p>&copy; <?php echo date('Y'); ?> <?php $ws_brand_font_text = of_get_option('ws_brand_font_text'); echo $ws_brand_font_text; ?></p>  
 					</div>
 					<div id ="credits" class="span6">
-						<p>Powered by: <a href="http://wordstrap.com" title="WordStrap">WordStrap</a>, an <a href="http://endeavr.com" title="Endeavr">Endeavr</a> Project
+						<p>Powered by: <a href="http://endeavr.github.com/wordstrap/" title="WordStrap">WordStrap</a>, an <a href="http://endeavr.com" title="Endeavr">Endeavr</a> Project
 					</div>	
 				</div>
 			</div>	

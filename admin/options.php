@@ -70,7 +70,13 @@ function optionsframework_options() {
 		"three"     => "Brand as a logo image",
 		//"four"      => "Brand as an icon font mark + font text",
 		//"five"      => "Brand as an icon font logo"
-	);	
+	);
+	
+	// Options for the Navbar Branding
+	$options_array_navbarbrand = array(
+		"masthead-brand" 	 => "Use the same branding as the Masthead and auto-adjust it to fit.",
+		"navbar-brand"       => "Upload a unique brand image for the navbar.",
+	);
 	
 	// Options Background Repeat Options
 	$options_repeat = array(
@@ -1134,6 +1140,7 @@ $options["ws_brand"] = array(
 	"name"      => "Branding Options",
 	"desc"      => "Should the website utilize font text to convey the website name or display images to convey the website branding or a combination of both?",
 	"id"        => "ws_brand",
+	"std"	  => "one",
 	"type"      => "select",
 	"options"   => $options_array_brand );
 						
@@ -1329,6 +1336,19 @@ $options["ws_navbarsidemargins"] = array(
 	"class"     => "mini",
 	"type"      => "text" );
 */
+
+$options["ws_navbarbrand"] = array( 
+	"name"      => "Navbar Branding Options",
+	"id"        => "ws_navbarbrand",
+	"std"       => "masthead-brand",
+	"type"      => "select",
+	"options"   => $options_array_navbarbrand );
+	
+$options["ws_navbarbrandlogo"] = array( 
+	"name"      => "Upload the brand&#39;s Logo image for the Navbar",
+	"desc"      => "This is optional. By default, the brand image in the navbar will be whatever you set for the Masthead. But if you want a unique brand image for the navbar, then make that selection above and upload one here. Ignore if not applicable.",
+	"id"        => "ws_navbarbrandlogo",
+	"type"      => "upload" );
 
 $options[] = array( 
 	"type"      => "closetoggle" );
@@ -1644,7 +1664,7 @@ $options["ws_wrappatternopaque"] = array(
 	"options"   => $options_patterns_opaque );	
 	
 $options["ws_wrapupload"] = array( 
-	"name"      =>  "Content Wrap Background Image Uploader (@wrapPattern)",
+	"name"      => "Content Wrap Background Image Uploader (@wrapPattern)",
 	"desc"      => "Upload an image to use as the content wrap background. A color may also be selected, but will only be relevant if the image is semi-transparent.",
 	"id"        => "ws_wrapupload",
 	"class"     => "hidden",
@@ -1743,8 +1763,16 @@ $options[] = array(
 $options[] = array( 
 	"name"      => "Super Footer Display Properties",
 	"desc"      => "Use these options to set the width, shape, shadow, padding, and margin of the website Super Footer. The Super Footer contains up to 4 widgetized columns for displaying complementary content.",
-	"type"      => "infotoggle" );		
-	
+	"type"      => "infotoggle" );
+/*	
+$options["ws_footerheight"] = array( 
+	"name"      => "Colophon Height (@footerHeight)",
+	"desc"      => "Set the height of the footer in pixels. <br>The default is <strong>( 200px )</strong>.",
+	"id"        => "ws_footerheight",
+	"std"       => "200px",
+	"class"     => "mini",
+	"type"      => "text" );				
+*/	
 $options["ws_footercontainer"] = array( 
 	"name"      => "Footer Containment (@footerContainer)",
 	"desc"      => "Choose whether the footer will take up the full width of the browser or be contained to match the content width. By default, the footer spans the full width of the browser window.",
@@ -1773,6 +1801,38 @@ $options["ws_footerborderradiusbtm"] = array(
 	"name"      => "Footer Border Radius - BOTTOM (@footerBorderRadiusBtm)",
 	"desc"      => "Set the BOTTOM border radius of the footer in pixels. <br>The default is <strong>( 0px )</strong>.",
 	"id"        => "ws_footerborderradiusbtm",
+	"std"       => "0px",
+	"class"     => "mini",
+	"type"      => "text" );	
+	
+$options["ws_footerpaddingtop"] = array( 
+	"name"      => "Footer Padding - TOP (@footerPaddingTop)",
+	"desc"      => "Set in pixels the top padding for the footer content. Typicallay, the top padding is greater than the bottom padding. The default is <strong>( 20px )</strong>.",
+	"id"        => "ws_footerpaddingtop",
+	"std"       => "20px",
+	"class"     => "mini",
+	"type"      => "text" );		
+	
+$options["ws_footerpaddingbtm"] = array( 
+	"name"      => "Footer Padding - BOTTOM (@footerPaddingBtm)",
+	"desc"      => "Set in pixels the bottom padding for the footer content. Typicallay, the bottom padding is less than the top padding. The default is <strong>( 10px )</strong>.",
+	"id"        => "ws_footerpaddingbtm",
+	"std"       => "10px",
+	"class"     => "mini",
+	"type"      => "text" );		
+	
+$options["ws_footermargintop"] = array( 
+	"name"      => "Footer Margin - TOP (@footerMarginTop)",
+	"desc"      => "Set a margin for the top of the footer. This creates separation between it and the bottom of the main content area.<br>The default is <strong>( 0px )</strong>.",
+	"id"        => "ws_footermargintop",
+	"std"       => "0px",
+	"class"     => "mini",
+	"type"      => "text" );		
+	
+$options["ws_footermarginbtm"] = array( 
+	"name"      => "Footer Margin - BOTTOM (@footerMarginBtm)",
+	"desc"      => "Set a margin for the bottom of the footer. This creates separation between it and the top of the colophon.<br>The default is <strong>( 0px )</strong>.",
+	"id"        => "ws_footermarginbtm",
 	"std"       => "0px",
 	"class"     => "mini",
 	"type"      => "text" );	
@@ -1886,8 +1946,16 @@ $options[] = array(
 $options[] = array( 
 	"name"      => "Colophon Display Properties",
 	"desc"      => "Use these options to set display properties for the website Colophon. The Colophon is at the very bottom of the website and contains the copyright, credits, and vital links to required documents like the Privacy Statement.",		
-	"type"      => "infotoggle" );	
-	
+	"type"      => "infotoggle" );
+/*	
+$options["ws_colophonheight"] = array( 
+	"name"      => "Colophon Height (@colophonHeight)",
+	"desc"      => "Set the height of the colophon in pixels. <br>The default is <strong>( 30px )</strong>.",
+	"id"        => "ws_colophonheight",
+	"std"       => "30px",
+	"class"     => "mini",
+	"type"      => "text" );			
+*/	
 $options["ws_colophoncontainer"] = array( 
 	"name"      => "Colophon Containment (@colophonContainer)",
 	"desc"      => "Choose whether the colophon will take up the full width of the browser or be contained to match the content width. By default, the colophon spans the full width of the browser window.",
