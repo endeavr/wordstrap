@@ -20,6 +20,7 @@
         <?php get_template_part('templates/sidebar'); ?>
       <?php endif; ?>
     </div><!-- /#content -->
+    		<div id="push"></div>
   </div><!-- /#wrap -->
   
   <?php get_template_part('templates/footer'); ?>

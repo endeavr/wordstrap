@@ -715,6 +715,8 @@ if (!is_admin())
 			$WPLessPlugin->addVariable('@footerAttach', $ws_footerAttach);
 		};	
 		
+	//$ws_footerHeight = of_get_option('ws_footerheight');
+		//$WPLessPlugin->addVariable('@footerHeight', $ws_footerHeight);
 	$ws_footerContainer = of_get_option('ws_footercontainer');
 		$WPLessPlugin->addVariable('@footerContainer', $ws_footerContainer);	
 		
@@ -730,6 +732,14 @@ if (!is_admin())
 		$WPLessPlugin->addVariable('@footerBorderRadiusTop', $ws_footerBorderRadiusTop);	
 	$ws_footerBorderRadiusBtm = of_get_option('ws_footerborderradiusbtm');
 		$WPLessPlugin->addVariable('@footerBorderRadiusBtm', $ws_footerBorderRadiusBtm);
+	$ws_footerPaddingTop = of_get_option('ws_footerpaddingtop');
+		$WPLessPlugin->addVariable('@footerPaddingTop', $ws_footerPaddingTop);	
+	$ws_footerPaddingBtm = of_get_option('ws_footerpaddingbtm');
+		$WPLessPlugin->addVariable('@footerPaddingBtm', $ws_footerPaddingBtm);
+	$ws_footerMarginTop = of_get_option('ws_footermargintop');
+		$WPLessPlugin->addVariable('@footerMarginTop', $ws_footerMarginTop);		
+	$ws_footerMarginBtm = of_get_option('ws_footermarginbtm');
+		$WPLessPlugin->addVariable('@footerMarginBtm', $ws_footerMarginBtm);			
 		
 	// Footer Typography
 	$ws_footerColor = of_get_option('ws_footercolor');
@@ -813,6 +823,8 @@ if (!is_admin())
 		};		
 		
 		
+	//$ws_colophonHeight = of_get_option('ws_colophonheight');
+		//$WPLessPlugin->addVariable('@colophonHeight', $ws_colophonHeight);
 	$ws_colophonContainer = of_get_option('ws_colophoncontainer');
 		$WPLessPlugin->addVariable('@colophonContainer', $ws_colophonContainer);	
 		
