@@ -39,6 +39,9 @@ body.gradient {
 margin-left:30px;
 margin-right:30px;	
 }
+#main > * {
+margin-right:15px;	
+}
 
 /* =============================================================================
    Header
@@ -112,8 +115,21 @@ padding:0 30px;
 padding:10px 30px;	
 }
 
+#brand.span4 {
+min-width:320px;	
+}
+
 #leaderboard {
-	
+height:@mastHeight;
+display:block;	
+float:right;
+margin-top:@brandMarginTop;
+max-width:100%;
+}
+
+#leaderboard a img, #leaderboard img {
+float:right;	
+padding:20px 30px 20px 0;
 }
 
 /* Adjust the Pinned Navbar to Accommodate the WP admin bar */
@@ -483,15 +499,15 @@ padding:5px 0;
 /* ==========================================================================
    Footer
    ========================================================================== */
-#sitefooter {
-background-color:@footerBackground;
-background-image:@footerPattern;
-background-position:center top;
-background-repeat:@footerRepeat;
-background-attachment:@footerAttach;	
+#sitefooter {	
 }
+
 #superfooter {
-padding-bottom:10px;
+//height:@footerHeight;
+padding-top:@footerPaddingTop;
+padding-bottom:@footerPaddingBtm;
+margin-top:@footerMarginTop;
+margin-bottom:@footerMarginBtm;
 background-color:@footerBackground;
 background-image:@footerPattern;
 background-position:center top;
@@ -530,6 +546,7 @@ margin-bottom:15px;
 }
 
 #colophon {
+//height:@colophonHeight;
 padding-top:@colophonPaddingTop;
 padding-bottom:@colophonPaddingBtm;
 margin-top:@colophonMarginTop;
@@ -567,6 +584,43 @@ color:darken(@colophonLinkColor,15%);
 text-align:right;	
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
+
+/*
+
+html,
+body {
+height: 100%;
+}
+
+#wrap {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -1*( ( @colophonHeight + @colophonPaddingTop + @colophonPaddingBtm + @colophonMarginTop + @colophonMarginBtm ) + ( @footerHeight + @footerPaddingTop + @footerPaddingBtm + @footerMarginTop + @footerMarginBtm ) );
+}
+
+#sitefooter { 
+height: ( ( @colophonHeight + @colophonPaddingTop + @colophonPaddingBtm + @colophonMarginTop + @colophonMarginBtm ) + ( @footerHeight + @footerPaddingTop + @footerPaddingBtm + @footerMarginTop + @footerMarginBtm ) );
+}
+
+#push {
+height: ( ( @colophonHeight + @colophonPaddingTop + @colophonPaddingBtm + @colophonMarginTop + @colophonMarginBtm ) + ( @footerHeight + @footerPaddingTop + @footerPaddingBtm + @footerMarginTop + @footerMarginBtm ) );
+}
+
+@media (max-width: 767px) {
+#sitefooter {
+margin-left: -20px;
+margin-right: -20px;
+padding-left: 20px;
+padding-right: 20px;
+}
+}
+
+*/
+
+      
 /* ==========================================================================
    Search Form
    ========================================================================== */
@@ -576,7 +630,10 @@ text-align:right;
 /* ==========================================================================
    Misc Components
    ========================================================================== */
-
+.contain {
+.span(@gridColumns);
+.container-fixed();	
+}
 
 /* ==========================================================================
    WordPress Generated Classes
@@ -587,6 +644,8 @@ text-align:right;
 .alignleft { float: left; }
 .alignright { float: right; }
 figure.alignnone { margin-left: 0; margin-right: 0; }
+img.alignright { margin-left:20px; }
+img.alignleft { margin-right:20px; }
 
 /* ==========================================================================
    Media Queries
@@ -608,6 +667,7 @@ body { padding-left: 0px; padding-right: 0px; }
 .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top { margin:0; }
 .navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
 .navbar .btn-navbar { margin-right:15px; }
+//#superfooter { height:@footerHeight * 2; }
 #colophon #copyright, #colophon #credits { text-align:center; }
 #superfooter .span4 { border-top:3px solid @bodyBackground; }
 .navbar .navbar-inner, .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner, .navbar-static-top .navbar-inner, #wrap, #superfooter, #colophon { border-radius:0px; border:none; }
@@ -616,4 +676,8 @@ body { padding-left: 0px; padding-right: 0px; }
 @media (max-width: @navbarCollapseWidth) {
 .navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
 .navbar .btn-navbar { margin-right:15px; }
+}
+
+@media (max-width: 480px) {
+//#superfooter { height:@footerHeight * 3; }	
 }
