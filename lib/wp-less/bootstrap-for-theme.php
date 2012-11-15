@@ -21,20 +21,19 @@ if (!class_exists('WPLessPlugin'))
 if (!is_admin())
 {
 
-// Scaffolding	
+/* Options for the Framework LESS file */
 
-	/* Moved this variable into the App.less options in the last section */
-	// $ws_bodyBackground = of_get_option('ws_bodybackground');
-	// $WPLessPlugin->addVariable('@bodyBackground', $ws_bodyBackground);
-	
-	/* Moved this variable into the baseFont fields under Typography */
-    	// $ws_textColor = of_get_option('ws_textColor');
-	// $WPLessPlugin->addVariable('@textColor', $ws_textColor);		
+// Component Sizing
+	$ws_baseBorderRadius = of_get_option('ws_baseborderradius');
+		$WPLessPlugin->addVariable('@baseBorderRadius', $ws_baseBorderRadius);
+	$ws_borderRadiusLarge = of_get_option('ws_borderradiuslarge');
+		$WPLessPlugin->addVariable('@borderRadiusLarge', $ws_borderRadiusLarge);	
+	$ws_borderRadiusSmall = of_get_option('ws_borderradiussmall');
+		$WPLessPlugin->addVariable('@borderRadiusSmall', $ws_borderRadiusSmall);			
 	
 // Links
     	$ws_linkColor = of_get_option('ws_linkcolor');
-	$WPLessPlugin->addVariable('@linkColor', $ws_linkColor);
-
+		$WPLessPlugin->addVariable('@linkColor', $ws_linkColor);
     	$ws_linkColorHover = of_get_option('ws_linkcolorhover');
     		if ( $ws_linkColorHover == '' ) {
 		    	$WPLessPlugin->addVariable('@linkColorHover', 'darken(@linkColor, 15%)');
@@ -45,54 +44,44 @@ if (!is_admin())
 	
 // Colors
     	$ws_blue = of_get_option('ws_blue');
-	$WPLessPlugin->addVariable('@blue', $ws_blue);	
-	
+		$WPLessPlugin->addVariable('@blue', $ws_blue);	
     	$ws_blueDark = of_get_option('ws_bluedark');
-	$WPLessPlugin->addVariable('@blueDark', $ws_blueDark);	
-	
+		$WPLessPlugin->addVariable('@blueDark', $ws_blueDark);		
     	$ws_green = of_get_option('ws_green');
-	$WPLessPlugin->addVariable('@green', $ws_green);
-	
-    	$ws_red = of_get_option('ws_red');
-	$WPLessPlugin->addVariable('@red', $ws_red);
-	
-    	$ws_yellow = of_get_option('ws_yellow');
-	$WPLessPlugin->addVariable('@yellow', $ws_yellow);
-	
-    	$ws_orange = of_get_option('ws_orange');
-	$WPLessPlugin->addVariable('@orange', $ws_orange);
-	
-    	$ws_pink = of_get_option('ws_pink');
-	$WPLessPlugin->addVariable('@pink', $ws_pink);
-	
-    	$ws_purple = of_get_option('ws_purple');
-	$WPLessPlugin->addVariable('@purple', $ws_purple);
+		$WPLessPlugin->addVariable('@green', $ws_green);
+	$ws_red = of_get_option('ws_red');
+		$WPLessPlugin->addVariable('@red', $ws_red);
+	$ws_yellow = of_get_option('ws_yellow');
+		$WPLessPlugin->addVariable('@yellow', $ws_yellow);
+	$ws_orange = of_get_option('ws_orange');
+		$WPLessPlugin->addVariable('@orange', $ws_orange);
+	$ws_pink = of_get_option('ws_pink');
+		$WPLessPlugin->addVariable('@pink', $ws_pink);
+	$ws_purple = of_get_option('ws_purple');
+		$WPLessPlugin->addVariable('@purple', $ws_purple);
 	
 // Typography
 	$ws_sansFontFamily = of_get_option('ws_sansfontfamily');
-	$WPLessPlugin->addVariable('@sansFontFamily', $ws_sansFontFamily);
-	
+		$WPLessPlugin->addVariable('@sansFontFamily', $ws_sansFontFamily);
 	$ws_serifFontFamily = of_get_option('ws_seriffontfamily');
-	$WPLessPlugin->addVariable('@serifFontFamily', $ws_serifFontFamily);
-	
+		$WPLessPlugin->addVariable('@serifFontFamily', $ws_serifFontFamily);
 	$ws_monoFontFamily = of_get_option('ws_monofontfamily');
-	$WPLessPlugin->addVariable('@monoFontFamily', $ws_monoFontFamily);
-	
+		$WPLessPlugin->addVariable('@monoFontFamily', $ws_monoFontFamily);
 	$ws_altFontFamily = of_get_option('ws_altfontfamily');
-	$WPLessPlugin->addVariable('@altFontFamily', $ws_altFontFamily);
+		$WPLessPlugin->addVariable('@altFontFamily', $ws_altFontFamily);
 	
-	/* NOTE: The textColor variable was moved from Scaffolding and incorporated into the baseFont options. */
+	// Base Font
 	$ws_baseFont = of_get_option('ws_basefont');
 		$ws_baseFontSize = $ws_baseFont['size'];
 		$ws_baseFontFamily = $ws_baseFont['face'];
 		$ws_textColor = $ws_baseFont['color']; 
-		
 	$ws_baseLineHeight = of_get_option('ws_baselineheight');	
 		$WPLessPlugin->addVariable('@baseFontSize', $ws_baseFontSize);
 		$WPLessPlugin->addVariable('@baseFontFamily', $ws_baseFontFamily);
 		$WPLessPlugin->addVariable('@baseLineHeight', $ws_baseLineHeight);
 		$WPLessPlugin->addVariable('@textColor', $ws_textColor);
 	
+	// Headings
 	$ws_headingsFont = of_get_option('ws_headingsfont');
 		$ws_headingsFontFamily = $ws_headingsFont['face'];
 		$ws_headingsFontWeight = $ws_headingsFont['style'];	
@@ -101,7 +90,7 @@ if (!is_admin())
 			$WPLessPlugin->addVariable('@headingsFontWeight', $ws_headingsFontWeight);
 			$WPLessPlugin->addVariable('@headingsColor', $ws_headingsColor);	
 	
-	/* NOTE: The h1 variables are custom additions and require the ws.type.less file. */
+	// H1 Font - /* NOTE: The h1 variables are custom additions and require the ws.type.less file. */
 	$ws_h1Font = of_get_option('ws_h1font');
 		$ws_h1FontSize = $ws_h1Font['size'];
 		$ws_h1FontFamily = $ws_h1Font['face'];
@@ -287,8 +276,6 @@ if (!is_admin())
 		$WPLessPlugin->addVariable('@inputBackground', $ws_inputBackground);
 	$ws_inputBorder = of_get_option('ws_inputborder');
 		$WPLessPlugin->addVariable('@inputBorder', $ws_inputBorder);
-	$ws_inputBorderRadius = of_get_option('ws_inputborderradius');
-		$WPLessPlugin->addVariable('@inputBorderRadius', $ws_inputBorderRadius);
 	$ws_inputDisabledBackground = of_get_option('ws_inputdisabledbackground');
 		$WPLessPlugin->addVariable('@inputDisabledBackground', $ws_inputDisabledBackground);
 	$ws_inputActionsBackground = of_get_option('ws_inputactionsbackground');
@@ -315,7 +302,6 @@ if (!is_admin())
 		$WPLessPlugin->addVariable('@infoBackground', $ws_infoBackground);	
 	
 // Buttons
-
 	$ws_btnBackground = of_get_option('ws_btnbackground');
 		$WPLessPlugin->addVariable('@btnBackground', $ws_btnBackground);	
 	$ws_btnPrimaryBackground = of_get_option('ws_btnprimarybackground');
@@ -335,25 +321,20 @@ if (!is_admin())
 		They are derived from each button's base color. */
 	
 // Pagination
-
 	$ws_paginationBackground = of_get_option('ws_paginationbackground');
-	$WPLessPlugin->addVariable('@paginationBackground', $ws_paginationBackground);
-	
+		$WPLessPlugin->addVariable('@paginationBackground', $ws_paginationBackground);
 	$ws_paginationBorder = of_get_option('ws_paginationborder');
-	$WPLessPlugin->addVariable('@paginationBorder', $ws_paginationBorder);
-	
+		$WPLessPlugin->addVariable('@paginationBorder', $ws_paginationBorder);
 	$ws_paginationActiveBackground = of_get_option('ws_paginationactivebackground');
-	$WPLessPlugin->addVariable('@paginationActiveBackground', $ws_paginationActiveBackground);	
+		$WPLessPlugin->addVariable('@paginationActiveBackground', $ws_paginationActiveBackground);	
 	
-// Tooltips and Popovers
-
+// Tooltips + Popovers
 	$ws_tooltipColor = of_get_option('ws_tooltipcolor');
 		$WPLessPlugin->addVariable('@tooltipColor', $ws_tooltipColor);
 	$ws_tooltipBackground = of_get_option('ws_tooltipbackground');
 		$WPLessPlugin->addVariable('@tooltipBackground', $ws_tooltipBackground);	
 	$ws_tooltipArrowWidth = of_get_option('ws_tooltiparrowwidth');
-		$WPLessPlugin->addVariable('@tooltipArrowWidth', $ws_tooltipArrowWidth);
-		
+		$WPLessPlugin->addVariable('@tooltipArrowWidth', $ws_tooltipArrowWidth);		
 	$ws_popoverBackground = of_get_option('ws_popoverbackground');
 		$WPLessPlugin->addVariable('@popoverBackground', $ws_popoverBackground);
 	$ws_popoverArrowWidth = of_get_option('ws_popoverarrowwidth');
@@ -362,17 +343,15 @@ if (!is_admin())
 	/* NOTE: Several of the Tooltip + Popover variables are auto-generated in the ws.variables.less file.
 		They are derived from the base background color. */
 		
-// Wells	
+// Wells
 	$ws_wellBackground = of_get_option('ws_wellbackground');
 		$WPLessPlugin->addVariable('@wellBackground', $ws_wellBackground);		
 								
 // Misc
-
     	$ws_hrBorder = of_get_option('ws_hrborder');
 		$WPLessPlugin->addVariable('@hrBorder', $ws_hrBorder);		
 	
 // FontAwesome Icons (sets the color of the icons)	
-
 	$ws_iconFontAwesome = of_get_option('ws_iconfontawesome');
 		$WPLessPlugin->addVariable('@iconFontAwesome', $ws_iconFontAwesome);	
 	
@@ -821,8 +800,7 @@ if (!is_admin())
 			$WPLessPlugin->addVariable('@colophonRepeat', 'no-repeat');
 			$WPLessPlugin->addVariable('@colophonAttach', $ws_colophonAttach);
 		};		
-		
-		
+			
 	//$ws_colophonHeight = of_get_option('ws_colophonheight');
 		//$WPLessPlugin->addVariable('@colophonHeight', $ws_colophonHeight);
 	$ws_colophonContainer = of_get_option('ws_colophoncontainer');
@@ -856,10 +834,7 @@ if (!is_admin())
 		$WPLessPlugin->addVariable('@colophonLinkColor', $ws_colophonLinkColor);
 										
 	
-/* Enqueue the LESS files */	
-
-	// wp_enqueue_style('ws_less_bootstrap_custom', '/wordstrap/assets/css/less/ws.bootstrap.less', array(), '1.0', 'screen,projection');
-	// wp_enqueue_style('ws_less_responsive_custom', '/wordstrap/assets/css/less/ws.responsive.less', array(), '1.0', 'screen,projection');
+/* Enqueue the LESS files */
 	
 	if (is_child_theme()) {
 		wp_enqueue_style('ws_less_framework', '/'.$theme_name.'/assets/css/less/ws.framework.less', array(), '1.0', 'screen,projection');
