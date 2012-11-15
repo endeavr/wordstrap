@@ -2,7 +2,7 @@
 	<div class="row">
 	<div class="span12">
 		<div class="row">
-			<div id="brand" class="span4">
+			<div id="brand" class="span6">
 			      <a href="<?php echo home_url(); ?>/">
 			        	<?php 
 			        	$ws_brand = of_get_option('ws_brand');
@@ -26,7 +26,7 @@
 			        		<?php endif; ?>	
 			      </a>
 			</div>
-			<div id="leaderboard" class="span8">
+			<div id="leaderboard" class="span6">
 				
 			</div>
 		</div>
