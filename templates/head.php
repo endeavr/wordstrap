@@ -11,8 +11,8 @@
 
   <?php wp_head(); ?>
 
-  <?php if (have_posts()) : ?>
-  <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url() ?>/feed/">
+  <?php if (wp_count_posts()->publish > 0) : ?>
+  <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
   <?php endif; ?>
   
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/modernizr-2.6.2.min.js"></script>

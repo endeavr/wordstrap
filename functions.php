@@ -18,6 +18,4 @@ require_once locate_template('/lib/htaccess.php');        // Rewrites for assets
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/tha-theme-hooks.php'); // Hooks
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
-require_once locate_template('/lib/post-types.php');      // Custom post types
-require_once locate_template('/lib/metaboxes.php');       // Custom metaboxes
 require_once locate_template('/lib/custom.php');          // Custom functions
