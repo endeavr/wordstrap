@@ -39,9 +39,6 @@ body.gradient {
 margin-left:30px;
 margin-right:30px;	
 }
-#main > * {
-margin-right:15px;	
-}
 
 /* =============================================================================
    Header
@@ -82,6 +79,7 @@ background-attachment:@mastAttach;
 .border-bottom-right-radius(@mastBorderRadiusBtm);
 .border-bottom-left-radius(@mastBorderRadiusBtm);
 margin-bottom:@mastMarginBtm;
+margin-top:@mastMarginTop;
 }
 
 #masthead.gradient {
@@ -92,7 +90,7 @@ margin-bottom:@mastMarginBtm;
 height:@mastHeight;
 display:block;	
 float:left;
-margin-top:@brandMarginTop;
+//margin-top:@brandMarginTop;
 max-width:100%;
 line-height:@mastHeight;
 font-family:@brandFontFamily;
@@ -123,7 +121,7 @@ min-width:320px;
 height:@mastHeight;
 display:block;	
 float:right;
-margin-top:@brandMarginTop;
+//margin-top:@brandMarginTop;
 max-width:100%;
 }
 
@@ -137,11 +135,6 @@ body.admin-bar .navbar-fixed-top.affix { top: 28px !important;}
 
 .nav, .navbar {
 margin-bottom:0;	
-}
-
-.navbar {
-margin-left:@navbarSideMargins;
-margin-right:@navbarSideMargins;	
 }
 
 .navbar .navbar-inner, .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner, .navbar-static-top .navbar-inner {
@@ -292,82 +285,10 @@ border-bottom:none;
 	}
 	.nav-tabs > .active > a,
 	.nav-tabs > .active > a:hover {
-	border: 1px solid lighten(@navbarLinkBackgroundActive, 30%);
+	border: 1px solid darken(@navbarLinkBackgroundActive, 30%);
 	border-bottom:none;
 	}	
 }
-
-/* Navbar Tab Links */
-// .nav-tabs > li > a {
-// background-color:@navbarTabsLinkBackground;
-// color:@navbarTabsLinkColor;
-// padding:(((@navbarHeight - @baseFontSize) / 2) + 2) 25px (((@navbarHeight - @baseFontSize) / 2) - 4);
-// }
-// .nav-tabs > li > a:hover {
-// background-color:@navbarTabsLinkBackgroundHover;
-// color:@navbarTabsLinkColorHover;
-// border-color:@navbarTabsLinkBackgroundHover;
-// }
-// .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-// background-color:@navbarTabsLinkBackgroundActive;
-// color:@navbarTabsLinkColorActive;
-// }
-// .nav-tabs > li.dropdown.open.active > a:hover {
-// background-color:@navbarTabsLinkBackgroundActive;
-// color:@navbarTabsLinkColorActive;
-// }
-// .nav-tabs .dropdown > .dropdown-toggle .caret {
-// border-top-color:@navbarTabsLinkColor;
-// border-bottom-color:@navbarTabsLinkColor;
-// }
-// .nav-tabs .dropdown > a:hover > .dropdown-toggle .caret {
-// border-top-color:@navbarTabsLinkColorHover;
-// border-bottom-color:@navbarTabsLinkColorHover;
-// }
-// .nav-tabs .dropdown.active > .caret, .nav-tabs .dropdown.active > a:hover > .caret {
-// border-top-color:@navbarTabsLinkColorActive;
-// border-bottom-color:@navbarTabsLinkColorActive;
-// }
-// .nav-tabs .dropdown.open .caret, .nav-tabs .dropdown.open.active .caret, .nav-tabs .dropdown.open a:hover .caret {
-// border-top-color:@navbarTabsLinkColorActive;
-// border-bottom-color:@navbarTabsLinkColorActive;	
-// }
-
-
-/*Navbar Pill Links */
-// .nav-pills > li > a {
-// background-color:@navbarPillsLinkBackground;
-// color:@navbarPillsLinkColor;
-// padding:((@navbarHeight - @baseFontSize) / 3) 25px ((@navbarHeight - @baseFontSize) / 3);
-// }
-// .nav-pills > li > a:hover {
-// background-color:@navbarPillsLinkBackgroundHover;
-// color:@navbarPillsLinkColorHover;
-// }
-// .nav-pills > .active > a, .nav-pills > .active > a:hover {
-// background-color:@navbarPillsLinkBackgroundActive;
-// color:@navbarPillsLinkColorActive;
-// }
-// .nav-pills > li.dropdown.open.active > a:hover {
-// background-color:@navbarPillsLinkBackgroundActive;
-// color:@navbarPillsLinkColorActive;
-// }
-// .nav-pills .dropdown > .dropdown-toggle .caret {
-// border-top-color:@navbarPillsLinkColor;
-// border-bottom-color:@navbarPillsLinkColor;
-// }
-// .nav-pills .dropdown > a:hover > .dropdown-toggle .caret {
-// border-top-color:@navbarPillsLinkColorHover;
-// border-bottom-color:@navbarPillsLinkColorHover;
-// }
-// .nav-pills .dropdown.active > .caret, .nav-pills .dropdown.active > a:hover > .caret {
-// border-top-color:@navbarPillsLinkColorActive;
-// border-bottom-color:@navbarPillsLinkColorActive;
-// }
-// .nav-pills .dropdown.open .caret, .nav-pills .dropdown.open.active .caret, .nav-pills .dropdown.open a:hover .caret {
-// border-top-color:@navbarPillsLinkColorActive;
-// border-bottom-color:@navbarPillsLinkColorActive;	
-// }
 
 /* Navbar Caret + Dropdown Menu */
 .nav .dropdown > .dropdown-toggle .caret {
@@ -459,6 +380,8 @@ padding-bottom:99999px;
 margin-bottom:-99999px;
 overflow:hidden;
 }
+
+#main img { margin-bottom:20px; }
 
 /* ==========================================================================
    Sidebar
@@ -630,10 +553,7 @@ padding-right: 20px;
 /* ==========================================================================
    Misc Components
    ========================================================================== */
-.contain {
-.span(@gridColumns);
-.container-fixed();	
-}
+
 
 /* ==========================================================================
    WordPress Generated Classes

@@ -171,10 +171,10 @@ if (!is_admin())
 	$ws_navbarPosition = of_get_option('ws_navbarposition');
 	$ws_navbarFixed = of_get_option('ws_navbarfixed');
 		if ( $ws_navbarPosition == 'navbar-pos-top' && $ws_navbarFixed == 'navbar-fixed' ) {
-			$WPLessPlugin->addVariable('@brandMarginTop', $ws_navbarHeight); 
+			$WPLessPlugin->addVariable('@mastMarginTop', $ws_navbarHeight); 
 		}
 		if ( $ws_navbarPosition == 'navbar-pos-btm' || $ws_navbarFixed == 'navbar-static' ) {
-			$WPLessPlugin->addVariable('@brandMarginTop', '0px'); 
+			$WPLessPlugin->addVariable('@mastMarginTop', '0px'); 
 		}		
 		
 // NAVBAR - Dropdown + Carets

@@ -205,7 +205,7 @@ max-width:62%;
 	margin-bottom:10px;
 }
 #optionsframework .screenshot .mlu_remove {
-	background:url("../images/ico-delete.png") no-repeat;
+	background:url("../inc/images/ico-delete.png") no-repeat;
 	border:medium none;
 	bottom:4px;
 	display:block;
