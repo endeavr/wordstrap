@@ -10,6 +10,7 @@
 if ( !function_exists( 'optionsframework_init' ) ) {
 	define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/admin/inc/' );
 	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+	require_once dirname( __FILE__ ) . '/inc/options-backup.php';
 }
  
  /* 
