@@ -13,7 +13,7 @@ if ( !function_exists( 'optionsframework_init' ) ) {
 	require_once dirname( __FILE__ ) . '/inc/options-backup.php';
 }
  
- /* 
+/* 
  * In this demo an additional css file is loaded into the
  * Options Panel in order to override specific default styling
  */
@@ -36,11 +36,11 @@ function optionsframework_custom_css () {
 	wp_enqueue_style( 'fontawesome_css' );
 }
 
- /* 
+/* 
  * Create an array of patterns from directory of images
  */
  
- function options_patterns_get_file_list( $directory_path, $filetype, $directory_uri ) {
+function options_patterns_get_file_list( $directory_path, $filetype, $directory_uri ) {
     $patterns = array();
     $pattern_files = array();
     if ( is_dir( $directory_path ) ) {
@@ -54,7 +54,17 @@ function optionsframework_custom_css () {
     return $patterns;
 }
 
- /**
+/* 
+ * Create an array of multipliers for scaling a property
+ */
+ 
+function options_multipliers() {
+	$multi_x = range( 0.05, 2.00, 0.05 );
+	$multi_x = apply_filters( 'options_multipliers', $multi_x );
+	return $multi_x;
+}
+
+/**
  * Returns an array of system fonts
  * Feel free to edit this, update the font fallbacks, etc.
  * http://www.awayback.com/revised-font-stack/

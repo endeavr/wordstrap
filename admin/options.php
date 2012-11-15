@@ -172,9 +172,44 @@ function optionsframework_options() {
 																						
 $options[] = array( 
 	"name"      => "Styles",
-	"type"      => "heading" );	
+	"type"      => "heading" );
 	
-/*==============================================*/	
+/*==============================================*/		
+	
+// Component Base Sizing					
+$options[] = array( 
+	"name"      => "Component Base Sizing",
+	"desc"      => "Use these options to define the default base sizes for key components.",
+	"type"      => "infotoggle" );	
+	
+$options["ws_baseborderradius"] = array( 
+	"name"      => "Base Border Radius (@baseBorderRadius)",
+	"desc"      => "The default setting is <strong>( 4px )</strong>.",
+	"id"        => "ws_baseborderradius",
+	"std"       => "4px",
+	"class"     => "mini",
+	"type"      => "text" );
+	
+$options["ws_borderradiuslarge"] = array( 
+	"name"      => "Border Radius Large (@borderRadiusLarge)",
+	"desc"      => "The default setting is <strong>( 6px )</strong>.",
+	"id"        => "ws_borderradiuslarge",
+	"std"       => "6px",
+	"class"     => "mini",
+	"type"      => "text" );
+	
+$options["ws_borderradiussmall"] = array( 
+	"name"      => "Border Radius Small (@borderRadiusSmall)",
+	"desc"      => "The default setting is <strong>( 3px )</strong>.",
+	"id"        => "ws_borderradiussmall",
+	"std"       => "3px",
+	"class"     => "mini",
+	"type"      => "text" );		
+	
+$options[] = array( 
+	"type"      => "closetoggle" );					
+	
+/*--------------------*/	
 		
 // Define Colors					
 $options[] = array( 
@@ -337,7 +372,7 @@ $options["ws_inputborder"] = array(
 	"id"        => "ws_inputborder",
 	"std"       => "#CCCCCC",
 	"type"      => "color" );		
-	
+/*	
 $options["ws_inputborderradius"] = array( 
 	"name"      => "Border Radius (@inputBorderRadius)",
 	"desc"      => "This controls the rounded corners of the form field. 0px would render it as a right angle. At most, set this to 10px. The default setting is <strong>( 3px )</strong>.",
@@ -345,7 +380,7 @@ $options["ws_inputborderradius"] = array(
 	"std"       => "3px",
 	"class"     => "mini",
 	"type"      => "text" );
-	
+*/	
 $options["ws_inputdisabledbackground"] = array( 
 	"name"      => "Disabled Background (@inputnDisabledBackground)",
 	"desc"      => "The default setting is near white <strong>( #EEEEEE )</strong>.",
@@ -727,7 +762,7 @@ $options["ws_baselineheight"] = array(
 	"id"        => "ws_baselineheight",
 	"std"       => "20px",
 	"class"     => "mini",
-	"type"      => "text" );	
+	"type"      => "text" );		
 	
 $options[] = array( 
 	"type"      => "closetoggle" );	
