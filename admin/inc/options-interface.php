@@ -93,7 +93,7 @@ function optionsframework_fields() {
 			$val = $value['std'];
 		}
 
-		// If the option is already saved, ovveride $val
+		// If the option is already saved, override $val
 		if ( ( $value['type'] != 'heading' ) && ( $value['type'] != 'info') && ( $value['type'] != 'note') && ( $value['type'] != "infotoggle" ) && ( $value['type'] != "closetoggle" ) ) {
 			if ( isset( $settings[($value['id'])]) ) {
 				$val = $settings[($value['id'])];
