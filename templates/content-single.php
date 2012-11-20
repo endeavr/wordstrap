@@ -3,8 +3,10 @@
   <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
     <?php tha_entry_top(); ?>
     <header>
-      <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php get_template_part('templates/entry-meta'); ?>
+    		<div class="page-header">
+     		<h1 class="entry-title"><?php the_title(); ?></h1>
+     	</div>
+     	<?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
@@ -14,6 +16,7 @@
       <?php the_tags('<ul class="entry-tags"><li>','</li><li>','</li></ul>'); ?>
     </footer>
     <?php tha_entry_bottom(); ?>
+    <hr>
     <?php tha_comments_before(); ?>
     <?php comments_template('/templates/comments.php'); ?>
     <?php tha_comments_after(); ?>
