@@ -27,7 +27,12 @@
 			      </a>
 			</div>
 			<div id="leaderboard" class="span6">
-				
+				<?php 
+				$ws_mastleaderboard = of_get_option('ws_mastleaderboard');
+				if ( $ws_mastleaderboard ) : 
+				?>
+					<img class="leaderboard" src="<?php echo $ws_mastleaderboard; ?>" alt="Website Masthead" />
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>	
