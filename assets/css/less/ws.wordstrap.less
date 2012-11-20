@@ -39,6 +39,7 @@ body.gradient {
 margin-left:30px;
 margin-right:30px;	
 }
+#main > * { margin-right:0; }
 
 /* =============================================================================
    Header
@@ -109,12 +110,9 @@ text-decoration:none;
 padding:0 30px;
 }
 
-#brand img.brand_logo {
+#brand a img, #brand img {
+float:left;
 padding:10px 30px;	
-}
-
-#brand.span4 {
-min-width:320px;	
 }
 
 #leaderboard {
@@ -123,11 +121,22 @@ display:block;
 float:right;
 //margin-top:@brandMarginTop;
 max-width:100%;
+line-height:@mastHeight;
+font-family:@brandFontFamily;
+font-size:@brandFontSize;
+font-weight:@brandFontWeight;
 }
 
 #leaderboard a img, #leaderboard img {
 float:right;	
-padding:20px 30px 20px 0;
+padding:10px 30px;
+}
+
+#leaderboard a {
+color:@brandColor;
+}
+#leaderboard a:hover {
+text-decoration:none;
 }
 
 /* Adjust the Pinned Navbar to Accommodate the WP admin bar */
@@ -153,6 +162,10 @@ border-color:none;
 
 .navbar-pos-btm.affix-top {
 position:relative;
+}
+
+.nav-collapse {
+padding-top:1em;	
 }
 
 .nav-collapse .btn {
@@ -415,7 +428,7 @@ padding:5px 0;
 
 .hentry header { }
 .hentry time { }
-.hentry p.byline { }
+.hentry p.byline { margin-left:30px; }
 .hentry .entry-content { }
 .hentry footer { }
 
@@ -464,7 +477,7 @@ color:@footerHeadingsColor;
 }
 
 #superfooter section {
-padding-top:5px;
+padding-top:15px;
 margin-bottom:15px;	
 }
 
@@ -570,34 +583,48 @@ img.alignleft { margin-right:20px; }
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-
+@media (max-width: 1199px) {
+#main > * { margin-right:10px; }	
+}
 @media (max-width: 979px) {
 /* Fix top padding when using the responsive grid with the fixed topbar */
 body.top-navbar { padding-top: 0; }
-.navbar .container { width: 724px; padding:0px; }
+.navbar .container { width:auto; padding:0px; }
 .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top { margin:0; }
-.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner { padding: 0; }
+//.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
 .navbar .btn-navbar { margin-right:30px; }
-#sidebar .form-search { padding:10px; }
-#sidebar .form-search input[type="text"] { width:80%; } 
+#wrap { position:relative; }
+#content { padding-bottom:0; }
+#main, #sidebar { float:none; width:auto; padding-bottom:0; margin-bottom:0; }
+#main { padding-bottom:25px; }
+#main > * { margin-right:30px; }
+#sidebar { padding-top:0; padding-bottom:0; }
+#sidebar section { border-top:3px solid @bodyBackground; margin:0; padding:15px 30px; }
+#sidebar .form-search { padding:15px; margin:0; }
+#sidebar .form-search input[type="text"] { width:80%; }
+#superfooter .span4 { float:none; width:auto; border-bottom:3px solid @bodyBackground; }
 }
 @media (max-width: 767px) {
 body { padding-left: 0px; padding-right: 0px; }
+#banner, #masthead, .navbar .navbar-inner, .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner, .navbar-static-top .navbar-inner, #wrap, #superfooter, #colophon { .border-radius(0px); border:none; }
+#banner { margin-top:0; }
 .navbar .container { width: auto; }
 .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top { margin:0; }
-.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
+//.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
 .navbar .btn-navbar { margin-right:15px; }
+#main, #sidebar { width:auto; }
 //#superfooter { height:@footerHeight * 2; }
+#superfooter .span4 { width:auto; }
 #colophon #copyright, #colophon #credits { text-align:center; }
-#superfooter .span4 { border-top:3px solid @bodyBackground; }
-.navbar .navbar-inner, .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner, .navbar-static-top .navbar-inner, #wrap, #superfooter, #colophon { border-radius:0px; border:none; }
-#colophon { border-top:3px solid @bodyBackground; } 
+#colophon { border-top:3px solid @bodyBackground; margin-bottom:0;} 
 }
 @media (max-width: @navbarCollapseWidth) {
-.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
-.navbar .btn-navbar { margin-right:15px; }
+//.navbar .brand { padding:15px 25px 15px 0; margin-left:15px; }
+//.navbar .btn-navbar { margin-right:15px; }
 }
 
 @media (max-width: 480px) {
+#brand a img, #brand img { padding:10px 0; margin:0 auto; float:none; }
 //#superfooter { height:@footerHeight * 3; }	
 }
