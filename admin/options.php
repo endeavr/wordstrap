@@ -1207,9 +1207,26 @@ $options["ws_brand_mark"] = array(
 	
 $options["ws_brand_logo"] = array( 
 	"name"      => "Upload the brand&#39;s Logo image",
-	"desc"      => "Upload an image to use as the brand&#39;s Logo. Ignore if not applicable.",
+	"desc"      => "Upload an image to use as the brand&#39;s Logo. It should be no more than 320px wide. Ignore if not applicable.",
 	"id"        => "ws_brand_logo",
 	"class"     => "hidden",
+	"type"      => "upload" );
+	
+$options[] = array( 
+	"type"      => "closetoggle" );	
+	
+/*--------------------*/	
+
+// MASTHEAD - Leaderboard						
+$options[] = array( 
+	"name"      => "Masthead Leaderboard",
+	"desc"      => "This defines the rest of the content in the Masthead that goes alongside the branding.",
+	"type"      => "infotoggle" );
+	
+$options["ws_mastleaderboard"] = array( 
+	"name"      => "Upload the Leaderboard image",
+	"desc"      => "Upload an image to use as the Leaderboard image alongside the branding. It should be no more than 320px wide.",
+	"id"        => "ws_mastleaderboard",
 	"type"      => "upload" );
 	
 $options[] = array( 

@@ -408,3 +408,23 @@ add_filter( 'current_theme_supports-ws_hooks', 'ws_current_theme_supports', 10, 
 	}
 	
 	add_filter ('ws_colophon_class','ws_colophon_variables');	
+	
+
+//** CUSTOM Image Sizes **//	
+function ws_add_image_sizes() {
+    add_image_size( 'ws-thumb43', 160, 120, true );
+    add_image_size( 'ws-thumb64', 160, 107, true );
+    add_image_size( 'ws-postwidth', 730 );
+    add_image_size( 'ws-fullwidth', 1100 );
+}
+add_action( 'init', 'ws_add_image_sizes' );
+ 
+function ws_show_image_sizes($sizes) {
+    $sizes['ws-thumb43'] = __( '4:3 Aspect Ratio Thumbnail', 'wordstrap' );
+    $sizes['ws-thumb64'] = __( '6:4 Aspect Ratio Thumbnail', 'wordstrap' );
+    $sizes['ws-postwidth'] = __( 'Post Width with Sidebar', 'wordstrap' );
+    $sizes['ws-fullwidth'] = __( 'Full Width with No Sidebar', 'wordstrap' );
+ 
+    return $sizes;
+}
+add_filter('image_size_names_choose', 'ws_show_image_sizes');	

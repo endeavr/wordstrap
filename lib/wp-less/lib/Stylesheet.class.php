@@ -1,6 +1,4 @@
 <?php
-require dirname(__FILE__).'/vendor/lessphp/lessc.inc.php';
-
 /**
  * Stylesheet management
  *
@@ -11,8 +9,7 @@ require dirname(__FILE__).'/vendor/lessphp/lessc.inc.php';
 class WPLessStylesheet
 {
   protected $compiler,
-            $stylesheet,
-            $variables = array();
+            $stylesheet;
 
   protected $is_new = true,
             $signature,
@@ -38,7 +35,6 @@ class WPLessStylesheet
   public function __construct(_WP_Dependency $stylesheet, array $variables = array())
   {
     $this->stylesheet = $stylesheet;
-    $this->variables = $variables;
 
     if (!self::$upload_dir || !self::$upload_uri)
     {
@@ -47,7 +43,7 @@ class WPLessStylesheet
 
     $this->stylesheet->ver = null;
     $this->configurePath();
-    $this->configureSignature();
+    $this->configureSignature($variables);
 
     if (file_exists($this->getTargetPath()))
     {
@@ -70,7 +66,6 @@ class WPLessStylesheet
     $target_path = preg_replace('#^'.get_theme_root_uri().'#U', '', $this->stylesheet->src);
     $target_path = preg_replace('/.less$/U', '', $target_path);
 
-    // $target_path .= '.cache/%s.css';
     $target_path .= '-%s.css';
 
     return apply_filters('wp-less_stylesheet_compute_target_path', $target_path);
@@ -89,30 +84,29 @@ class WPLessStylesheet
   {
     $target_file =          $this->computeTargetPath();
 
-   //$this->source_path =    WP_CONTENT_DIR.preg_replace('#^'.WP_CONTENT_URL.'#U', '', $this->stylesheet->src);
-   //$this->source_path =    TEMPLATEPATH.$this->stylesheet->src;
-   //$this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src;
-    $this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src;
+    //$this->source_path =    WP_CONTENT_DIR.preg_replace('#^'.content_url().'#U', '', $this->stylesheet->src);
+    $this->source_path =    WP_CONTENT_DIR.'/themes'.$this->stylesheet->src; /*** EDITED ***/
     $this->source_uri =     $this->stylesheet->src;
     $this->target_path =    self::$upload_dir.$target_file;
-    $this->target_uri =     self::$upload_uri.$target_file; 
+    $this->target_uri =     self::$upload_uri.$target_file;
 
     $this->source_timestamp = filemtime($this->source_path);
   }
 
   /**
    * Configures the file signature
-   * 
+   *
    * It corresponds to a unique hash taking care of file timestamp and variables.
    * It should be called each time stylesheet variables are updated.
-   * 
+   *
    * @author oncletom
+   * @param array $variables List of variables used for signature
    * @since 1.4.2
-   * @version 1.0
+   * @version 1.1
    */
-  protected function configureSignature()
+  protected function configureSignature(array $variables = array())
   {
-    $this->signature = substr(sha1(serialize($this->variables) . $this->source_timestamp), 0, 10);
+    $this->signature = substr(sha1(serialize($variables) . $this->source_timestamp), 0, 10);
   }
 
   /**
@@ -183,28 +177,16 @@ class WPLessStylesheet
   }
 
   /**
-   * Returns stylesheet variables
-   * 
-   * @author oncletom
-   * @since 1.4.2
-   * @return array
-   */
-  public function getVariables()
-  {
-    return $this->variables;
-  }
-
-  /**
    * Tells if compilation is needed
    *
    * @author oncletom
    * @since 1.0
-   * @version 1.2
+   * @version 1.3
    * @return boolean
    */
   public function hasToCompile()
   {
-    return ($this->is_new || (defined('WP_DEBUG') && WP_DEBUG));
+    return $this->is_new;
   }
 
   /**
