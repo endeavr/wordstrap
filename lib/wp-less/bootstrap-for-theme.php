@@ -526,7 +526,11 @@ if (!is_admin())
 	$ws_mastBorderRadiusBtm = of_get_option('ws_mastborderradiusbtm');
 		$WPLessPlugin->addVariable('@mastBorderRadiusBtm', $ws_mastBorderRadiusBtm);
 	$ws_mastMarginBtm = of_get_option('ws_mastmarginbtm');
-		$WPLessPlugin->addVariable('@mastMarginBtm', $ws_mastMarginBtm);				
+		$WPLessPlugin->addVariable('@mastMarginBtm', $ws_mastMarginBtm);	
+	
+	$ws_mastLeaderboard = of_get_option('ws_mastleaderboard');
+		$ws_mastLeaderboardURL = "url('$ws_mastLeaderboard')";	
+					
 					
 // CONTENT WRAP
 	$ws_wrapOption = of_get_option('ws_wrapoption');

@@ -207,6 +207,7 @@ function options_typography_get_google_fonts_display() {
 		'Courgette, serif' => 'Courgette',
 		'Crushed, sans-serif' => 'Crushed',
 		'Cuprum, sans-serif' => 'Cuprum',
+		'"Dancing Script", serif' => 'Dancing Script',
 		'"Diplomata SC", serif' => 'Diplomata SC',
 		'"Eagle Lake", serif' => 'Eagle Lake',
 		'"Francois One", sans-serif' => 'Francois One',
